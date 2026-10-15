@@ -1,0 +1,15 @@
+{
+  "cues": [
+    {"cue": 1, "sceneId": "pinturaFluorescente", "presetName": "lite", "morphDuration": 0.0},
+    {"cue": 2, "sceneId": "particleSwarm", "presetName": "lite", "morphDuration": 2.0},
+    {"cue": 3, "sceneId": "organicNet", "presetName": "lite", "morphDuration": 1.5},
+    {"cue": 4, "sceneId": "ribbonDance", "presetName": "lite", "morphDuration": 2.0},
+    {"cue": 5, "sceneId": "furry", "presetName": "full", "morphDuration": 0.5},
+    {"cue": 6, "sceneId": "particleSwarm", "presetName": "full", "morphDuration": 1.5},
+    {"cue": 7, "sceneId": "pinturaFluorescente", "presetName": "full", "morphDuration": 1.0},
+    {"cue": 8, "sceneId": "organicNet", "presetName": "full", "morphDuration": 1.5},
+    {"cue": 9, "sceneId": "trappedBodyNet", "presetName": "full", "morphDuration": 2.0},
+    {"cue": 10, "sceneId": "ribbonDance", "presetName": "full", "morphDuration": 2.0},
+    {"cue": 11, "sceneId": "pinturaFluorescente", "presetName": "lite", "morphDuration": 3.0}
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "sceneId": "furry",
+  "presets": [
+    {
+      "name": "lite",
+      "params": {
+        "density": 0.3,
+        "fiberLength": 8.0,
+        "stiffness": 1.0,
+        "windStrength": 0.2,
+        "breathAmount": 0.1,
+        "fiberThickness": 1.5
+      }
+    },
+    {
+      "name": "full",
+      "params": {
+        "density": 0.7,
+        "fiberLength": 18.0,
+        "stiffness": 0.4,
+        "windStrength": 0.5,
+        "breathAmount": 0.3,
+        "fiberThickness": 3.0
+      }
+    }
+  ]
+}

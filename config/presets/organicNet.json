@@ -1,0 +1,41 @@
+{
+  "sceneId": "organicNet",
+  "presets": [
+    {
+      "name": "lite",
+      "params": {
+        "grid.rows": 6,
+        "grid.cols": 8,
+        "grid.spacing": 60.0,
+        "grid.omitChance": 0.35,
+        "line.segments": 4,
+        "line.noiseAmount": 5.0,
+        "line.width": 0.5,
+        "line.alpha": 100.0,
+        "node.radius": 0.5,
+        "node.alpha": 0.0,
+        "phys.springIterations": 1,
+        "noise.strength": 0.3,
+        "wind.strength": 0.15
+      }
+    },
+    {
+      "name": "full",
+      "params": {
+        "grid.rows": 12,
+        "grid.cols": 18,
+        "grid.spacing": 45.0,
+        "grid.omitChance": 0.12,
+        "line.segments": 10,
+        "line.noiseAmount": 10.0,
+        "line.width": 1.2,
+        "line.alpha": 180.0,
+        "node.radius": 2.5,
+        "node.alpha": 100.0,
+        "phys.springIterations": 3,
+        "noise.strength": 0.8,
+        "wind.strength": 0.4
+      }
+    }
+  ]
+}

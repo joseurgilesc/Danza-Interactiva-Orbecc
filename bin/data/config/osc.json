@@ -1,0 +1,14 @@
+{
+  "_notes": [
+    "enabled: set false to pause OSC without losing settings",
+    "port: UDP port for ofxOscReceiver (1-65535)",
+    "prefix: optional namespace without leading slash",
+    "logLevel: info/debug/warning/error logging granularity",
+    "maxMessagesPerFrame: limit of packets drained each frame"
+  ],
+  "enabled": true,
+  "logLevel": "info",
+  "maxMessagesPerFrame": 64,
+  "port": 9000,
+  "prefix": ""
+}

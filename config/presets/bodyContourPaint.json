@@ -1,0 +1,20 @@
+{
+  "sceneId":"bodyContourPaint",
+  "presets":[
+    {"name":"Suave","params":{
+      "k":0.05,"A":12,"w":0.4,"q":0.002,"beta":0.6,"S":90,"ws":0.25,"qs":0.001,
+      "ringPull":0.9,"repelForce":0.25,"spreadRadius":50,"spawnRate":25,
+      "particleLife":5.5,"particleSize":3.5,"gravity":0.006,"maxParticles":800
+    },"kinectMappings":[]},
+    {"name":"Intenso","params":{
+      "k":0.07,"A":18,"w":0.5,"q":0.003,"beta":0.5,"S":130,"ws":0.3,"qs":0.002,
+      "ringPull":1.2,"repelForce":0.3,"spreadRadius":70,"spawnRate":40,
+      "particleLife":6,"particleSize":4,"gravity":0.01,"maxParticles":1200
+    },"kinectMappings":[]},
+    {"name":"Explosivo","params":{
+      "k":0.09,"A":25,"w":0.6,"q":0.004,"beta":0.4,"S":200,"ws":0.35,"qs":0.003,
+      "ringPull":1.6,"repelForce":0.4,"spreadRadius":100,"spawnRate":60,
+      "particleLife":7,"particleSize":5,"gravity":0.015,"maxParticles":2000
+    },"kinectMappings":[]}
+  ]
+}

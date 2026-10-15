@@ -1,0 +1,71 @@
+{
+  "sceneId": "trappedBodyNet",
+  "presets": [
+    {
+      "name": "tenue",
+      "params": {
+        "rings.count": 4,
+        "rings.points": 18,
+        "rings.baseRadius": 25.0,
+        "rings.spacing": 35.0,
+        "line.segments": 4,
+        "line.noiseAmount": 5.0,
+        "line.width": 0.5,
+        "line.alpha": 100.0,
+        "node.radius": 0.8,
+        "noise.strength": 16.0,
+        "elastic.springIter": 2,
+        "open.strength": 0.5,
+        "open.maxExpansion": 100.0,
+        "open.speed": 0.018,
+        "close.speed": 0.004,
+        "elastic.return": 0.008,
+        "damping": 0.98
+      }
+    },
+    {
+      "name": "organico",
+      "params": {
+        "rings.count": 4,
+        "rings.points": 24,
+        "rings.baseRadius": 30.0,
+        "rings.spacing": 42.0,
+        "line.segments": 10,
+        "line.noiseAmount": 8.0,
+        "line.width": 0.7,
+        "line.alpha": 120.0,
+        "node.radius": 1.0,
+        "noise.strength": 18.0,
+        "elastic.springIter": 3,
+        "open.strength": 0.7,
+        "open.maxExpansion": 140.0,
+        "open.speed": 0.020,
+        "close.speed": 0.004,
+        "elastic.return": 0.009,
+        "damping": 0.975
+      }
+    },
+    {
+      "name": "caudal",
+      "params": {
+        "rings.count": 6,
+        "rings.points": 26,
+        "rings.baseRadius": 40.0,
+        "rings.spacing": 40.0,
+        "line.segments": 12,
+        "line.noiseAmount": 7.0,
+        "line.width": 1.0,
+        "line.alpha": 150.0,
+        "node.radius": 1.5,
+        "noise.strength": 12.0,
+        "elastic.springIter": 3,
+        "open.strength": 1.0,
+        "open.maxExpansion": 200.0,
+        "open.speed": 0.025,
+        "close.speed": 0.003,
+        "elastic.return": 0.012,
+        "damping": 0.96
+      }
+    }
+  ]
+}

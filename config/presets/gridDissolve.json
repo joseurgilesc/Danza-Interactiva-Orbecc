@@ -1,0 +1,80 @@
+{
+  "sceneId": "gridDissolve",
+  "presets": [
+    {
+      "name": "Fino",
+      "params": {
+        "cols": 30,
+        "rows": 20,
+        "dissolveDuration": 0.6,
+        "touchRadius": 8
+      },
+      "kinectMappings": [
+        {"jointSource":"head","targetParameterId":"gridDissolve.head","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"neck","targetParameterId":"gridDissolve.neck","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"shoulder_left","targetParameterId":"gridDissolve.shoulder_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"shoulder_right","targetParameterId":"gridDissolve.shoulder_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"elbow_left","targetParameterId":"gridDissolve.elbow_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"elbow_right","targetParameterId":"gridDissolve.elbow_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"wrist_left","targetParameterId":"gridDissolve.wrist_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"wrist_right","targetParameterId":"gridDissolve.wrist_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"hip_left","targetParameterId":"gridDissolve.hip_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"hip_right","targetParameterId":"gridDissolve.hip_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"knee_left","targetParameterId":"gridDissolve.knee_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"knee_right","targetParameterId":"gridDissolve.knee_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"hand_left","targetParameterId":"gridDissolve.hand_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"hand_right","targetParameterId":"gridDissolve.hand_right","transformType":"VEC2_XY","enabled":true}
+      ]
+    },
+    {
+      "name": "Grueso",
+      "params": {
+        "cols": 15,
+        "rows": 10,
+        "dissolveDuration": 1.0,
+        "touchRadius": 15
+      },
+      "kinectMappings": [
+        {"jointSource":"head","targetParameterId":"gridDissolve.head","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"neck","targetParameterId":"gridDissolve.neck","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"shoulder_left","targetParameterId":"gridDissolve.shoulder_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"shoulder_right","targetParameterId":"gridDissolve.shoulder_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"elbow_left","targetParameterId":"gridDissolve.elbow_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"elbow_right","targetParameterId":"gridDissolve.elbow_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"wrist_left","targetParameterId":"gridDissolve.wrist_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"wrist_right","targetParameterId":"gridDissolve.wrist_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"hip_left","targetParameterId":"gridDissolve.hip_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"hip_right","targetParameterId":"gridDissolve.hip_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"knee_left","targetParameterId":"gridDissolve.knee_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"knee_right","targetParameterId":"gridDissolve.knee_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"hand_left","targetParameterId":"gridDissolve.hand_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"hand_right","targetParameterId":"gridDissolve.hand_right","transformType":"VEC2_XY","enabled":true}
+      ]
+    },
+    {
+      "name": "Rapido",
+      "params": {
+        "cols": 20,
+        "rows": 15,
+        "dissolveDuration": 0.3,
+        "touchRadius": 12
+      },
+      "kinectMappings": [
+        {"jointSource":"head","targetParameterId":"gridDissolve.head","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"neck","targetParameterId":"gridDissolve.neck","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"shoulder_left","targetParameterId":"gridDissolve.shoulder_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"shoulder_right","targetParameterId":"gridDissolve.shoulder_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"elbow_left","targetParameterId":"gridDissolve.elbow_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"elbow_right","targetParameterId":"gridDissolve.elbow_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"wrist_left","targetParameterId":"gridDissolve.wrist_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"wrist_right","targetParameterId":"gridDissolve.wrist_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"hip_left","targetParameterId":"gridDissolve.hip_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"hip_right","targetParameterId":"gridDissolve.hip_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"knee_left","targetParameterId":"gridDissolve.knee_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"knee_right","targetParameterId":"gridDissolve.knee_right","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"hand_left","targetParameterId":"gridDissolve.hand_left","transformType":"VEC2_XY","enabled":true},
+        {"jointSource":"hand_right","targetParameterId":"gridDissolve.hand_right","transformType":"VEC2_XY","enabled":true}
+      ]
+    }
+  ]
+}

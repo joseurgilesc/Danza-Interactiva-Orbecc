@@ -1,0 +1,73 @@
+{
+  "sceneId": "pinturaFluorescente",
+  "presets": [
+    {
+      "name": "suspiro",
+      "params": {
+        "maxParticles": 300,
+        "spawnRate": 1,
+        "trailEnabled": 0.0,
+        "A": 8.0,
+        "S": 3.0,
+        "w": 0.1,
+        "k": 0.10,
+        "beta": 0.98,
+        "flockSpeed": 0.1,
+        "flockWaveX": 1.5,
+        "flockWaveY": 1.0,
+        "flockCohesion": 0.0003,
+        "flockLife": 0.3
+      },
+      "midiMappings": [
+        {
+          "type": "cc",
+          "channel": 2,
+          "number": 7,
+          "targetParameterId": "pinturaFluorescente.k",
+          "minInput": 0.0,
+          "maxInput": 127.0,
+          "minOutput": 0.0,
+          "maxOutput": 1.0,
+          "controlMode": 0,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "organico",
+      "params": {
+        "maxParticles": 1500,
+        "spawnRate": 3,
+        "trailEnabled": 1.0,
+        "A": 15.0,
+        "S": 6.0,
+        "w": 0.15,
+        "k": 0.12,
+        "beta": 0.97,
+        "flockSpeed": 0.2,
+        "flockWaveX": 3.0,
+        "flockWaveY": 2.0,
+        "flockCohesion": 0.0005,
+        "flockLife": 0.2
+      }
+    },
+    {
+      "name": "caudal",
+      "params": {
+        "maxParticles": 4000,
+        "spawnRate": 5,
+        "trailEnabled": 1.0,
+        "A": 25.0,
+        "S": 10.0,
+        "w": 0.2,
+        "k": 0.15,
+        "beta": 0.96,
+        "flockSpeed": 0.3,
+        "flockWaveX": 5.0,
+        "flockWaveY": 3.0,
+        "flockCohesion": 0.0008,
+        "flockLife": 0.15
+      }
+    }
+  ]
+}

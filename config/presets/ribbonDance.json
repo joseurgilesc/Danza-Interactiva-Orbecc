@@ -1,0 +1,39 @@
+{
+  "sceneId": "ribbonDance",
+  "presets": [
+    {
+      "name": "lite",
+      "params": {
+        "ribbon.maxActiveRibbons": 2,
+        "ribbon.maxPoints": 50,
+        "ribbon.maxWidth": 12.0,
+        "ribbon.minWidth": 2.0,
+        "ribbon.waveAmount": 3.0,
+        "ribbon.life": 3.0,
+        "ribbon.colorCycles": 1,
+        "particle.maxCount": 100,
+        "particle.perBurst": 1,
+        "particle.emissionThreshold": 100.0,
+        "particle.lifeMax": 1.5,
+        "particle.sizeMax": 3.0
+      }
+    },
+    {
+      "name": "full",
+      "params": {
+        "ribbon.maxActiveRibbons": 6,
+        "ribbon.maxPoints": 120,
+        "ribbon.maxWidth": 30.0,
+        "ribbon.minWidth": 4.0,
+        "ribbon.waveAmount": 10.0,
+        "ribbon.life": 8.0,
+        "ribbon.colorCycles": 3,
+        "particle.maxCount": 800,
+        "particle.perBurst": 3,
+        "particle.emissionThreshold": 20.0,
+        "particle.lifeMax": 2.0,
+        "particle.sizeMax": 5.0
+      }
+    }
+  ]
+}

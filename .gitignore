@@ -1,0 +1,77 @@
+# OpenFrameworks - Gitignore oficial
+# https://github.com/openframeworks/of.gitignore
+
+# Build results
+bin/*
+!bin/data/
+bin/data/*
+!bin/data/config/
+bin/data/config/*
+!bin/data/config/osc.json
+!bin/data/fonts/
+bin/data/fonts/*
+!bin/data/fonts/Roboto-Regular.ttf
+!bin/data/fonts/Roboto-Bold.ttf
+obj/
+build/
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Project specific (如果你 tienes addons)
+# addons/ - usually excluded as they're linked from OF installation
+
+# OpenFrameworks make files (generated)
+config.make
+Makefile
+*.make
+!addons.make
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+build/
+DerivedData/
+
+# Linux
+*.user
+
+# Visual Studio
+*.user
+*.suo
+*.sln
+*.vcxproj
+
+# Logs
+*.log
+
+# Runtime artifacts
+Log/
+imgui.ini
+detector.log
+app.log
+
+# Python
+venv*/
+__pycache__/
+*.pyc
+
+# Node.js (AI tooling, not part of the project)
+node_modules/
+package-lock.json
+# Local Pi runtime state
+.atl/

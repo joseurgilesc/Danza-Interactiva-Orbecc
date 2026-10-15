@@ -1,0 +1,22 @@
+{
+  "sceneId": "enjambreOrganico",
+  "presets": [
+    {
+      "name": "Default",
+      "params": {
+        "travelDuration": 3.0,
+        "dwellDuration": 1.5,
+        "swarmRadius": 80.0,
+        "noiseAmount": 50.0,
+        "noiseSpeed": 0.3,
+        "springStiffness": 4.0,
+        "particleCount": 1500,
+        "maxAnchorSpeed": 600.0,
+        "particleSize": 4.0,
+        "boneTrailRatio": 0.3,
+        "lagRatio": 0.15
+      },
+      "kinectMappings": []
+    }
+  ]
+}

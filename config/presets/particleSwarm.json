@@ -1,0 +1,33 @@
+{
+  "sceneId": "particleSwarm",
+  "presets": [
+    {
+      "name": "lite",
+      "params": {
+        "swarm.maxParticles": 100,
+        "swarm.spawnRate": 1,
+        "visual.radiusMax": 20.0,
+        "visual.radiusMin": 1.0,
+        "swarm.massMax": 0.015,
+        "swarm.lifeMax": 5.0,
+        "push.radius": 80.0,
+        "push.strength": 0.03,
+        "swarm.forceScale": 0.4
+      }
+    },
+    {
+      "name": "full",
+      "params": {
+        "swarm.maxParticles": 400,
+        "swarm.spawnRate": 2,
+        "visual.radiusMax": 35.0,
+        "visual.radiusMin": 2.0,
+        "swarm.massMax": 0.03,
+        "swarm.lifeMax": 10.0,
+        "push.radius": 200.0,
+        "push.strength": 0.06,
+        "swarm.forceScale": 0.8
+      }
+    }
+  ]
+}

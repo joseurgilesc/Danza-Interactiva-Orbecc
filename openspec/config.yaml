@@ -1,0 +1,35 @@
+schema: spec-driven
+
+context: |
+  Tech stack: OpenFrameworks 0.12.1 (C++17), GLFW, GLM, ImGui (ofxImGui), OSC (ofxOsc)
+  Architecture: Modular namespace with SceneEngine (ISceneActivator), 7 scenes (PinturaFluorescente, RibbonDance, FlujoArticular, Furry, OrganicNet, TrappedBodyNet, ParticleSwarm), ParameterRegistry, TransportController, InputRouter/MidiPortsStore, MappingLayer, UIManager with 8+ ImGui panels, MediaPipe Kinect skeleton via OSC bridge (IKinectAdapter), OSC/MIDI integration for Ableton Live
+  Build: Makefile (OF standard)
+  Platform: macOS (Apple Silicon/Intel)
+
+strict_tdd: false
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes
+    - Identify affected modules/packages
+  specs:
+    - Use Given/When/Then format for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+  design:
+    - Include sequence diagrams for complex flows
+    - Document architecture decisions with rationale
+  tasks:
+    - Group tasks by phase (infrastructure, implementation, testing)
+    - Use hierarchical numbering (1.1, 1.2, etc.)
+    - Keep tasks small enough to complete in one session
+  apply:
+    - Follow existing code patterns and conventions
+  verify:
+    - Build verification via `make` command
+
+testing:
+  strict_tdd: false
+  test_runner: null
+  coverage: false
+  linter: false
+  type_checker: false
