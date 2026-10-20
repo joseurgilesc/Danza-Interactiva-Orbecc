@@ -1,6 +1,7 @@
 #include "scenes/FurryScene.h"
 #include "registry/ParameterRegistry.h"
 #include "scenes/GenesisCommon.h"
+#include "input/sensors/DepthStore.h"
 #include <cmath>
 #include <algorithm>
 
@@ -380,38 +381,46 @@ void FurryScene::update(float deltaTime) {
         }
 
         // ----- Body silhouette deflection -----
-        // Fibers whose root is inside the body hull are removed entirely.
-        // Fibers near the outside edge are pushed away from the body.
+        // Fibers whose root is inside the body are removed. "Inside" se determina
+        // con la silueta REAL del depth si hay datos; si no, cae al convex hull.
         bool fiberInsideBody = false;
-        if (!bodyHull_.empty() && contourOpacity_ > 0.0f) {
+        auto& depthStore = DepthStore::instance();
+        if (depthStore.hasData()) {
+            float nx = root.x / ofGetWidth();
+            float ny = root.y / ofGetHeight();
+            fiberInsideBody = depthStore.isBody(nx, ny);
+        } else if (!bodyHull_.empty() && contourOpacity_ > 0.0f) {
             if (pointInPolygon(root, bodyHull_)) {
                 fiberInsideBody = true;
-            } else {
-                // Find closest edge and distance
-                float minDist = 1e30f;
-                glm::vec2 closestPt(0.0f);
-                size_t hullN = bodyHull_.size();
-                for (size_t j = 0; j < hullN; j++) {
-                    size_t k = (j + 1) % hullN;
-                    glm::vec2 edge = bodyHull_[k] - bodyHull_[j];
-                    float edgeLen = glm::length(edge);
-                    if (edgeLen < 0.001f) continue;
-                    glm::vec2 edgeDir = edge / edgeLen;
-                    glm::vec2 toPt = root - bodyHull_[j];
-                    float t = glm::dot(toPt, edgeDir);
-                    t = std::max(0.0f, std::min(edgeLen, t));
-                    glm::vec2 cp = bodyHull_[j] + edgeDir * t;
-                    float d = glm::length(root - cp);
-                    if (d < minDist) { minDist = d; closestPt = cp; }
-                }
-                const float influenceZone = 88.0f;  // 80 + 10%
-                if (minDist < influenceZone) {
-                    float influence = 1.0f - smoothstep(0.0f, influenceZone, minDist);
-                    glm::vec2 awayDir = (minDist > 0.001f)
-                        ? glm::normalize(root - closestPt)
-                        : glm::vec2(0.0f, -1.0f);
-                    deflection += awayDir * influence * mouseForce_ * fiberLength_ * 1.65f;  // +10%
-                }
+            }
+        }
+
+        // Edge pushing (solo si NO está dentro): empuja fibras cercanas al cuerpo.
+        if (!fiberInsideBody && !bodyHull_.empty() && contourOpacity_ > 0.0f) {
+            // Find closest edge and distance
+            float minDist = 1e30f;
+            glm::vec2 closestPt(0.0f);
+            size_t hullN = bodyHull_.size();
+            for (size_t j = 0; j < hullN; j++) {
+                size_t k = (j + 1) % hullN;
+                glm::vec2 edge = bodyHull_[k] - bodyHull_[j];
+                float edgeLen = glm::length(edge);
+                if (edgeLen < 0.001f) continue;
+                glm::vec2 edgeDir = edge / edgeLen;
+                glm::vec2 toPt = root - bodyHull_[j];
+                float t = glm::dot(toPt, edgeDir);
+                t = std::max(0.0f, std::min(edgeLen, t));
+                glm::vec2 cp = bodyHull_[j] + edgeDir * t;
+                float d = glm::length(root - cp);
+                if (d < minDist) { minDist = d; closestPt = cp; }
+            }
+            const float influenceZone = 88.0f;  // 80 + 10%
+            if (minDist < influenceZone) {
+                float influence = 1.0f - smoothstep(0.0f, influenceZone, minDist);
+                glm::vec2 awayDir = (minDist > 0.001f)
+                    ? glm::normalize(root - closestPt)
+                    : glm::vec2(0.0f, -1.0f);
+                deflection += awayDir * influence * mouseForce_ * fiberLength_ * 1.65f;  // +10%
             }
         }
 

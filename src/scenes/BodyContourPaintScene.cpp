@@ -1,6 +1,7 @@
 #include "scenes/BodyContourPaintScene.h"
 #include "registry/ParameterRegistry.h"
 #include "mapping/ParameterTypes.h"
+#include "input/sensors/DepthStore.h"
 #include "ofMain.h"
 #include <glm/glm.hpp>
 #include <algorithm>
@@ -162,21 +163,39 @@ void BodyContourPaintScene::spawnParticles(float dt){
     int n=std::min((int)spawnAccum_,cap-activeCount_);if(n<=0)return;
     spawnAccum_-=(float)n;
 
+    // Contorno REAL del cuerpo desde el depth (si hay datos). Si no, cae al círculo.
+    std::vector<glm::vec2> contourPx;
+    auto& depth = DepthStore::instance();
+    if (depth.hasData()) {
+        auto cps = depth.contourPoints();
+        contourPx.reserve(cps.size());
+        for (auto& cp : cps) contourPx.push_back(glm::vec2(cp.x * ofGetWidth(), cp.y * ofGetHeight()));
+    }
+
     for(int s=0;s<n;s++){
         int slot=-1;
         for(size_t i=0;i<particles_.size();i++)if(!particles_[i].active){slot=(int)i;break;}
         if(slot<0)break;
 
-        float a=ofRandom(0,glm::two_pi<float>());
-        glm::vec2 ringPos=circleCenter_+glm::vec2(std::cos(a),std::sin(a))*circleRadius_;
-        float d=spreadRadius_*ofRandom(.1f,1.f);
-        glm::vec2 offset(std::cos(a+ofRandom(-.3f,.3f)),std::sin(a+ofRandom(-.3f,.3f)));
-
         auto& p=particles_[slot];
         p.active=true;
-        p.pos=ringPos+offset*d;
-        glm::vec2 tangent(-std::sin(a),std::cos(a));
-        p.vel=tangent*S_*ofRandom(.3f,1.f);
+
+        if (!contourPx.empty()) {
+            // Spawn en un punto del contorno real + jitter.
+            glm::vec2 c = contourPx[(int)ofRandom(contourPx.size())];
+            p.pos = c + glm::vec2(ofRandom(-spreadRadius_, spreadRadius_), ofRandom(-spreadRadius_, spreadRadius_));
+            float va = ofRandom(0, glm::two_pi<float>());
+            p.vel = glm::vec2(std::cos(va), std::sin(va)) * S_ * ofRandom(.3f, 1.f);
+        } else {
+            float a=ofRandom(0,glm::two_pi<float>());
+            glm::vec2 ringPos=circleCenter_+glm::vec2(std::cos(a),std::sin(a))*circleRadius_;
+            float d=spreadRadius_*ofRandom(.1f,1.f);
+            glm::vec2 offset(std::cos(a+ofRandom(-.3f,.3f)),std::sin(a+ofRandom(-.3f,.3f)));
+            p.pos=ringPos+offset*d;
+            glm::vec2 tangent(-std::sin(a),std::cos(a));
+            p.vel=tangent*S_*ofRandom(.3f,1.f);
+        }
+
         p.maxLife=particleLife_*ofRandom(.7f,1.4f);p.life=p.maxLife;
         p.size=groupSizes_[slot%8]*ofRandom(.15f,2.5f);
         p.phase=ofRandom(0,glm::two_pi<float>());

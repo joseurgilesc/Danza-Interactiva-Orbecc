@@ -1,5 +1,6 @@
 #include "scenes/SilhouetteDepthTunnelScene.h"
 #include "mapping/ParameterTypes.h"
+#include "input/sensors/DepthStore.h"
 #include <algorithm>
 
 namespace modular {
@@ -39,15 +40,32 @@ void SilhouetteDepthTunnelScene::update(float dt) {
     const float w = ofGetWidth();
     const float h = ofGetHeight();
 
-    // Calcular convex hull 2D (X/Y) de las articulaciones activas.
+    // Silueta REAL del depth (contorno píxel a píxel) o convex hull de joints.
+    auto& depth = DepthStore::instance();
     std::vector<glm::vec2> pts;
     ofVec3f chest(0.0f, 0.0f, 0.0f);
     bool hasChest = false;
+
     for (const auto& e : interactionPoints_) {
         if (!e.second.active) continue;
-        ofVec3f wp = e.second.worldPos(w, h);
-        pts.push_back(glm::vec2(wp.x, wp.y));
-        if (e.first == "spine_mid") { chest = wp; hasChest = true; }
+        if (e.first == "spine_mid") { chest = e.second.worldPos(w, h); hasChest = true; }
+    }
+
+    if (depth.hasData()) {
+        auto cps = depth.contourPoints();
+        pts.reserve(cps.size());
+        for (auto& cp : cps) {
+            pts.push_back(glm::vec2(
+                ofMap(cp.x, 0.0f, 1.0f, -kWorldHalfW, kWorldHalfW),
+                ofMap(cp.y, 0.0f, 1.0f, kWorldHalfH, -kWorldHalfH)));
+        }
+    } else {
+        for (const auto& e : interactionPoints_) {
+            if (!e.second.active) continue;
+            ofVec3f wp = e.second.worldPos(w, h);
+            pts.push_back(glm::vec2(wp.x, wp.y));
+        }
+        pts = computeConvexHull(pts);
     }
 
     // Emitir un anillo nuevo cada ringEvery_ segundos.

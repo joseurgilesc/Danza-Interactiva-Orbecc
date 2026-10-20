@@ -1,5 +1,7 @@
 #include "OrbbecAdapter.h"
 
+#include "input/sensors/DepthStore.h"
+
 #include <nlohmann/json.hpp>
 
 #include <ofLog.h>
@@ -182,6 +184,9 @@ void OrbbecAdapter::grabLatestFrame() {
             depthW_ = w;
             depthH_ = h;
             depthData_.assign(data, data + w * h);
+
+            // Publicar el depth submuestreado para la silueta real del cuerpo.
+            DepthStore::instance().update(depthData_, depthW_, depthH_);
         }
     }
 

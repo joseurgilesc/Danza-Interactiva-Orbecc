@@ -16,6 +16,7 @@
 #include "scenes/GravitationalPointCloudScene.h"
 #include "scenes/SilhouetteDepthTunnelScene.h"
 #include "scenes/AcousticDepthEchoesScene.h"
+#include "scenes/BodySilhouetteScene.h"
 
 #include "ui/InputPortsPanel.h"
 #include "ui/MappingPanel.h"
@@ -108,6 +109,9 @@ void ofApp::setup(){
 
     modular::ScenePtr adeScene = modular::CreateAcousticDepthEchoesScene();
     sceneEngine.loadScene(adeScene->getId(), adeScene);  // "acousticDepthEchoes" (3D)
+
+    modular::ScenePtr bsScene = modular::CreateBodySilhouetteScene();
+    sceneEngine.loadScene(bsScene->getId(), bsScene);  // "bodySilhouette" (silueta real del depth)
     
     uiManager.setup();
 
