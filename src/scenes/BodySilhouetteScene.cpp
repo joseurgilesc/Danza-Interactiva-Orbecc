@@ -46,7 +46,7 @@ void BodySilhouetteScene::update(float dt) {
             if (particles_.size() >= maxParticles_) break;
             float nx = ofRandom(0.0f, 1.0f);
             float ny = ofRandom(0.0f, 1.0f);
-            if (!depth.isBody(nx, ny, thresholdMM_)) continue;
+            if (!depth.isBody(nx, ny)) continue;
 
             SilParticle p;
             p.pos = glm::vec2(nx * w, ny * h);
@@ -57,7 +57,7 @@ void BodySilhouetteScene::update(float dt) {
             // Color según proximidad (más cerca → cCore, lejos → cNeon).
             float proximity = 1.0f - ofClamp(depth.at(
                 (int)(nx * (depth.gridW() - 1)),
-                (int)(ny * (depth.gridH() - 1))) / (float)thresholdMM_, 0.0f, 1.0f);
+                (int)(ny * (depth.gridH() - 1))) / (float)depth.getThreshold(), 0.0f, 1.0f);
             p.color = cNeon().getLerped(cCore(), proximity);
             particles_.push_back(p);
         }

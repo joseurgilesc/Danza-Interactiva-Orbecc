@@ -120,7 +120,7 @@ void UIManager::drawShortcutsOverlay() {
 
     ImGui::TextUnformatted(
         "U: paneles   T: transparencia   <-/->: escena   1-9: escena   F: pantalla   "
-        "M: raton   R: reset   S: guardar   L: cargar   Shift+E: esqueleto   D: debug");
+        "M: raton   R: reset   S: guardar   L: cargar   Shift+E: esqueleto   ,/.: silueta   D: debug");
 
     ImGui::End();
 }

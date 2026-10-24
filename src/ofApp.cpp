@@ -17,6 +17,7 @@
 #include "scenes/SilhouetteDepthTunnelScene.h"
 #include "scenes/AcousticDepthEchoesScene.h"
 #include "scenes/BodySilhouetteScene.h"
+#include "input/sensors/DepthStore.h"
 
 #include "ui/InputPortsPanel.h"
 #include "ui/MappingPanel.h"
@@ -639,6 +640,16 @@ void ofApp::keyPressed(int key){
         bool current = sceneEngine.isMouseInputEnabled();
         sceneEngine.setUseMouseInput(!current);
         ofLogNotice("MouseInput") << (current ? "Disabled" : "Enabled") << " (M)";
+    }
+
+    // Ajustar umbral de la silueta de profundidad (, / .)
+    if (key == ',' || key == '.') {
+        auto& depth = modular::DepthStore::instance();
+        int t = depth.getThreshold();
+        t += (key == ',') ? -200 : 200;
+        t = ofClamp(t, 500, 6000);
+        depth.setThreshold(static_cast<uint16_t>(t));
+        ofLogNotice("DepthStore") << "Umbral silueta: " << t << " mm";
     }
     
     // Reset Kinect/MediaPipe tracking (R) — only when ImGui is not capturing keyboard

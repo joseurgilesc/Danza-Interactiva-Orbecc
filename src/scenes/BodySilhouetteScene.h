@@ -73,7 +73,6 @@ private:
 
     size_t maxParticles_ = 1200;
     int spawnAttempts_ = 24;   // intentos de spawn por frame (rejection sampling)
-    uint16_t thresholdMM_ = 2500;
 };
 
 ScenePtr CreateBodySilhouetteScene();
