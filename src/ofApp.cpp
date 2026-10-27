@@ -422,6 +422,8 @@ void ofApp::update(){
     sceneEngine.update(delta);
     transport.update(delta);
     uiManager.update(delta);
+
+    if (thresholdToastTimer_ > 0.0f) thresholdToastTimer_ -= delta;
 }
 
 void ofApp::draw(){
@@ -444,6 +446,14 @@ void ofApp::draw(){
     
     uiManager.draw();
     drawDebugOverlay();
+
+    // Toast del umbral de silueta (feedback al ajustar con , / .)
+    if (thresholdToastTimer_ > 0.0f) {
+        ofPushStyle();
+        std::string msg = "Silueta: " + std::to_string(thresholdToastValue_) + " mm  (',' baja / '.' sube)";
+        ofDrawBitmapStringHighlight(msg, ofGetWidth() / 2 - 160, 40, ofColor(0, 0, 0, 220), ofColor::yellow);
+        ofPopStyle();
+    }
 
     // Scene transition fade overlay (black rectangle with alpha)
     if (sceneEngine.isTransitioning()) {
@@ -649,6 +659,8 @@ void ofApp::keyPressed(int key){
         t += (key == ',') ? -200 : 200;
         t = ofClamp(t, 500, 6000);
         depth.setThreshold(static_cast<uint16_t>(t));
+        thresholdToastTimer_ = 2.5f;
+        thresholdToastValue_ = t;
         ofLogNotice("DepthStore") << "Umbral silueta: " << t << " mm";
     }
     
@@ -777,6 +789,8 @@ void ofApp::drawDebugOverlay() {
     std::ostringstream overlay;
     overlay << "[D] Scene Debug Overlay" << std::endl;
     overlay << "FPS: " << ofToString(ofGetFrameRate(), 1) << std::endl;
+    overlay << "Silueta (umbral): " << modular::DepthStore::instance().getThreshold()
+            << " mm  (ajusta con ',' y '.')" << std::endl;
 
     auto activeScene = sceneEngine.getActiveScene();
     if (activeScene) {

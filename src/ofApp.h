@@ -92,4 +92,8 @@ class ofApp : public ofBaseApp, public ofxMidiListener {
 
         // MIDI Input
         ofxMidiIn midiIn_;
+
+        // Toast del umbral de silueta (feedback visual al ajustar con , / .)
+        float thresholdToastTimer_ = 0.0f;
+        int thresholdToastValue_ = 2500;
     };
