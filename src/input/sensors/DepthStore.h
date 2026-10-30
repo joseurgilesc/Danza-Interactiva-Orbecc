@@ -12,6 +12,8 @@
 #include "ofMain.h"
 #include <cstdint>
 #include <vector>
+#include <algorithm>
+#include <cmath>
 #include <glm/vec2.hpp>
 
 namespace modular {
@@ -56,6 +58,7 @@ public:
     }
 
     // Puntos del contorno del cuerpo (células de borde) en coords normalizadas 0..1.
+    // Ordenados por ángulo alrededor del centroide → contorno coherente (no zigzag).
     std::vector<glm::vec2> contourPoints() const {
         std::vector<glm::vec2> pts;
         if (!hasData_ || grid_.empty()) return pts;
@@ -69,6 +72,15 @@ public:
                         static_cast<float>(gy) / (gridH_ - 1)));
                 }
             }
+        }
+        if (pts.size() > 2) {
+            glm::vec2 centroid(0.0f);
+            for (const auto& p : pts) centroid += p;
+            centroid /= static_cast<float>(pts.size());
+            std::sort(pts.begin(), pts.end(), [&](const glm::vec2& a, const glm::vec2& b) {
+                return std::atan2(a.y - centroid.y, a.x - centroid.x) <
+                       std::atan2(b.y - centroid.y, b.x - centroid.x);
+            });
         }
         return pts;
     }
