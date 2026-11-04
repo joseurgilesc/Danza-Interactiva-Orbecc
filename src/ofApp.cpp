@@ -484,6 +484,13 @@ void ofApp::exit(){
     if (kinectMappingEngine_) {
         kinectMappingEngine_->saveToJson("config/kinect-mappings.json");
     }
+
+    // Guardar umbral de silueta (persistencia entre sesiones).
+    {
+        ofJson dj;
+        dj["silhouetteThreshold"] = modular::DepthStore::instance().getThreshold();
+        ofSaveJson("config/depth.json", dj);
+    }
     
     // Shutdown Kinect adapter
     if (kinectAdapter_) {
@@ -585,7 +592,16 @@ void ofApp::keyPressed(int key){
         auto& registry = modular::ParameterRegistry::getGlobal();
         registry.loadFromJson("config/parameters.json");
         if (kinectMappingEngine_) {
-            kinectMappingEngine_->loadFromJson("config/kinect-mappings.json");
+    kinectMappingEngine_->loadFromJson("config/kinect-mappings.json");
+
+    // Cargar umbral de silueta guardado (persistencia entre sesiones).
+    if (ofFile::doesFileExist("config/depth.json")) {
+        ofJson dj = ofLoadJson("config/depth.json");
+        if (dj.contains("silhouetteThreshold") && dj["silhouetteThreshold"].is_number()) {
+            modular::DepthStore::instance().setThreshold(
+                static_cast<uint16_t>(dj["silhouetteThreshold"].get<int>()));
+        }
+    }
         }
         if (oscMappingEngine_) {
             oscMappingEngine_->loadFromJson("config/osc-mappings.json");
