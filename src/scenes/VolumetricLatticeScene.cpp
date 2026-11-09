@@ -75,11 +75,14 @@ void VolumetricLatticeScene::draw() {
 
     ofEnableAlphaBlending();
     ofEnableDepthTest();
+    ofEnableBlendMode(OF_BLENDMODE_ADD);   // glow aditivo en las líneas
 
     beginGenesisCamera(cam_, w, h);
 
     ofSetLineWidth(1.2f);
     latticeMesh_.draw();
+
+    ofDisableBlendMode();
 
     // Pecho (SPINE_MID) para el core motif.
     auto it = interactionPoints_.find("spine_mid");

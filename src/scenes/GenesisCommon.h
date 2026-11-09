@@ -115,10 +115,17 @@ inline bool pointInPolygon(const glm::vec2& p, const std::vector<glm::vec2>& pol
 // ============================================================================
 
 inline void drawCoreMotif(const ofVec3f& chest, float now) {
-    ofPushStyle();
-    ofSetColor(cCore());
-    ofFill();
     float r = 10.0f + 5.0f * sin(now * 3.0f);
+
+    // Halo suave (aditivo) + núcleo sólido.
+    ofPushStyle();
+    ofEnableBlendMode(OF_BLENDMODE_ADD);
+    ofSetColor(cCore(), 30);
+    ofDrawSphere(chest, r * 3.5f);
+    ofSetColor(cCore(), 70);
+    ofDrawSphere(chest, r * 2.0f);
+    ofDisableBlendMode();
+    ofSetColor(cCore());
     ofDrawSphere(chest, r);
     ofPopStyle();
 }

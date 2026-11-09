@@ -25,17 +25,34 @@ public:
         return s;
     }
 
-    // Publica el depth alineado a color (mm). Submuestrea a la rejilla interna.
+    // Publica el depth alineado a color (mm). Submuestrea + suaviza temporalmente.
     void update(const std::vector<uint16_t>& depth, int w, int h) {
         if (depth.empty() || w <= 0 || h <= 0) return;
         gridW_ = kGridW;
         gridH_ = kGridH;
-        grid_.resize(gridW_ * gridH_);
+
+        // Downsample crudo.
+        std::vector<uint16_t> raw(gridW_ * gridH_);
         for (int gy = 0; gy < gridH_; gy++) {
             int sy = gy * h / gridH_;
             for (int gx = 0; gx < gridW_; gx++) {
                 int sx = gx * w / gridW_;
-                grid_[gy * gridW_ + gx] = depth[sy * w + sx];
+                raw[gy * gridW_ + gx] = depth[sy * w + sx];
+            }
+        }
+
+        // Suavizado temporal (EMA) → silueta estable, sin jitter.
+        if (grid_.size() != raw.size()) {
+            grid_ = raw;
+        } else {
+            const float a = 0.4f;  // mezcla hacia el nuevo valor
+            for (size_t i = 0; i < raw.size(); i++) {
+                uint16_t r = raw[i], p = grid_[i];
+                if (r > 0 && p > 0) {
+                    grid_[i] = static_cast<uint16_t>(p + (r - p) * a);
+                } else {
+                    grid_[i] = r;  // entrada/salida del cuerpo: instantáneo
+                }
             }
         }
         hasData_ = true;
