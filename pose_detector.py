@@ -120,7 +120,8 @@ def main():
                 t1 = time.perf_counter()
                 frame_no += 1
                 if frame_no % 60 == 0:
-                    print(f"pose {(t1 - t0) * 1000:.1f}ms", flush=True)
+                    np_poses = len(pose_res.pose_landmarks) if pose_res.pose_landmarks else 0
+                    print(f"pose {(t1 - t0) * 1000:.1f}ms  personas={np_poses}", flush=True)
 
                 reply = {
                     "pose": pose_to_list(pose_res),

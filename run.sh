@@ -27,11 +27,15 @@ start() {
   cp -f "$ROOT/config/midi.json" "$ROOT/bin/data/config/" 2>/dev/null || true
   cp -f "$ROOT/config/sequence.json" "$ROOT/bin/data/config/" 2>/dev/null || true
 
-  if [ -z "$(detector_pid)" ]; then
-    echo "▶ arrancando pose_detector.py..."
-    setsid -f "$PYTHON" "$DET" > "$ROOT/detector.log" 2>&1
-    sleep 2
+  # Reiniciar el detector SIEMPRE (para que use el código Python más reciente).
+  if [ -n "$(detector_pid)" ]; then
+    kill "$(detector_pid)" 2>/dev/null
+    sleep 1
   fi
+  echo "▶ arrancando pose_detector.py..."
+  setsid -f "$PYTHON" "$DET" > "$ROOT/detector.log" 2>&1
+  sleep 2
+
   if [ -z "$(app_pid)" ]; then
     echo "▶ arrancando app oF (DISPLAY=:0)..."
     DISPLAY=:0 setsid -f "$APP" > "$ROOT/app.log" 2>&1

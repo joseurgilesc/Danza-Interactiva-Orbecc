@@ -299,22 +299,33 @@ void OrbbecAdapter::detectorLoop() {
 
             try {
                 json j = json::parse(jsonStr);
-                // "pose" es una LISTA de poses (multi-persona); cada pose es una
-                // lista de 33 landmarks {x,y,z,visibility}.
+                // "pose" puede ser:
+                //  - (nuevo) una LISTA de poses; cada pose es una lista de 33 landmarks.
+                //  - (viejo) una lista plana de 33 landmarks (una sola pose).
                 std::vector<std::vector<std::array<float, 3>>> poses;
                 std::vector<std::vector<float>> visList;
-                if (j.contains("pose") && j["pose"].is_array()) {
-                    for (auto &poseArr : j["pose"]) {
-                        std::vector<std::array<float, 3>> pts;
-                        std::vector<float> vis;
-                        for (auto &lm : poseArr) {
-                            pts.push_back({lm.value("x", 0.f), lm.value("y", 0.f), lm.value("z", 0.f)});
-                            vis.push_back(lm.value("visibility", 0.f));
+
+                auto parseLandmarks = [&](const json& arr) -> std::pair<std::vector<std::array<float,3>>, std::vector<float>> {
+                    std::vector<std::array<float, 3>> pts;
+                    std::vector<float> vis;
+                    for (auto &lm : arr) {
+                        pts.push_back({lm.value("x", 0.f), lm.value("y", 0.f), lm.value("z", 0.f)});
+                        vis.push_back(lm.value("visibility", 0.f));
+                    }
+                    return {std::move(pts), std::move(vis)};
+                };
+
+                if (j.contains("pose") && j["pose"].is_array() && !j["pose"].empty()) {
+                    if (j["pose"][0].is_array()) {
+                        // Lista de poses.
+                        for (auto &poseArr : j["pose"]) {
+                            auto [pts, vis] = parseLandmarks(poseArr);
+                            if (pts.size() >= 33) { poses.push_back(std::move(pts)); visList.push_back(std::move(vis)); }
                         }
-                        if (pts.size() >= 33) {
-                            poses.push_back(std::move(pts));
-                            visList.push_back(std::move(vis));
-                        }
+                    } else if (j["pose"][0].is_object()) {
+                        // Lista plana (formato viejo).
+                        auto [pts, vis] = parseLandmarks(j["pose"]);
+                        if (pts.size() >= 33) { poses.push_back(std::move(pts)); visList.push_back(std::move(vis)); }
                     }
                 }
                 std::lock_guard<std::mutex> lock(poseMutex_);
