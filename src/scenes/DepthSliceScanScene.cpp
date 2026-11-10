@@ -10,7 +10,7 @@ DepthSliceScanScene::~DepthSliceScanScene() {}
 void DepthSliceScanScene::setup() {
     ofEnableAlphaBlending();
     ofSetBackgroundAuto(true);
-    ofBackground(cNoche());
+    ofBackground(0);
 
     // 6 planos Z desde cerca (+400) hasta lejos (-800).
     planes_ = {
@@ -28,7 +28,7 @@ void DepthSliceScanScene::activate() {
     isPaused_ = false;
     ofSetWindowTitle("Depth Slice Scan");
     ofSetFrameRate(60);
-    ofBackground(cNoche());
+    ofBackground(0);
 }
 
 void DepthSliceScanScene::deactivate() {

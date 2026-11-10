@@ -23,7 +23,7 @@ void GravitationalPointCloudScene::buildCloud() {
 void GravitationalPointCloudScene::setup() {
     ofEnableAlphaBlending();
     ofSetBackgroundAuto(true);
-    ofBackground(cNoche());
+    ofBackground(0);
     buildCloud();
 }
 
@@ -32,7 +32,7 @@ void GravitationalPointCloudScene::activate() {
     isPaused_ = false;
     ofSetWindowTitle("Gravitational Point Cloud");
     ofSetFrameRate(60);
-    ofBackground(cNoche());
+    ofBackground(0);
 }
 
 void GravitationalPointCloudScene::deactivate() {
@@ -98,7 +98,7 @@ void GravitationalPointCloudScene::draw() {
 
     beginGenesisCamera(cam_, w, h);
 
-    glPointSize(2.5f);
+    glPointSize(5.0f);
     starMesh_.draw();
     glPointSize(1.0f);
 

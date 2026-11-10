@@ -10,7 +10,7 @@ VoxelFluidDisruptionScene::~VoxelFluidDisruptionScene() {}
 void VoxelFluidDisruptionScene::setup() {
     ofEnableAlphaBlending();
     ofSetBackgroundAuto(true);
-    ofBackground(cNoche());
+    ofBackground(0);
     voxels_.reserve(maxVoxels_);
 }
 
@@ -19,7 +19,7 @@ void VoxelFluidDisruptionScene::activate() {
     isPaused_ = false;
     ofSetWindowTitle("Voxel Fluid Disruption");
     ofSetFrameRate(60);
-    ofBackground(cNoche());
+    ofBackground(0);
 }
 
 void VoxelFluidDisruptionScene::deactivate() {

@@ -10,7 +10,7 @@ AcousticDepthEchoesScene::~AcousticDepthEchoesScene() {}
 void AcousticDepthEchoesScene::setup() {
     ofEnableAlphaBlending();
     ofSetBackgroundAuto(true);
-    ofBackground(cNoche());
+    ofBackground(0);
     echoes_.reserve(maxEchoes_);
 }
 
@@ -19,7 +19,7 @@ void AcousticDepthEchoesScene::activate() {
     isPaused_ = false;
     ofSetWindowTitle("Acoustic Depth Echoes");
     ofSetFrameRate(60);
-    ofBackground(cNoche());
+    ofBackground(0);
 }
 
 void AcousticDepthEchoesScene::deactivate() {

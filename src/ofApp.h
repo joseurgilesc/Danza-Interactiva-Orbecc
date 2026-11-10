@@ -96,4 +96,7 @@ class ofApp : public ofBaseApp, public ofxMidiListener {
         // Toast del umbral de silueta (feedback visual al ajustar con , / .)
         float thresholdToastTimer_ = 0.0f;
         int thresholdToastValue_ = 2500;
+
+        // Vista de cámara RGB (tecla V)
+        bool showRgb_ = false;
     };

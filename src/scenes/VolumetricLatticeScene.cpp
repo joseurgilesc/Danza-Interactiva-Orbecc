@@ -10,7 +10,7 @@ VolumetricLatticeScene::~VolumetricLatticeScene() {}
 void VolumetricLatticeScene::setup() {
     ofEnableAlphaBlending();
     ofSetBackgroundAuto(true);
-    ofBackground(cNoche());
+    ofBackground(0);
 }
 
 void VolumetricLatticeScene::activate() {
@@ -18,7 +18,7 @@ void VolumetricLatticeScene::activate() {
     isPaused_ = false;
     ofSetWindowTitle("Volumetric Lattice");
     ofSetFrameRate(60);
-    ofBackground(cNoche());
+    ofBackground(0);
 }
 
 void VolumetricLatticeScene::deactivate() {

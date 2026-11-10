@@ -10,7 +10,7 @@ DepthKineticVortexScene::~DepthKineticVortexScene() {}
 void DepthKineticVortexScene::setup() {
     ofEnableAlphaBlending();
     ofSetBackgroundAuto(true);
-    ofBackground(cNoche());
+    ofBackground(0);
     particles_.reserve(maxParticles_);
 }
 
@@ -19,7 +19,7 @@ void DepthKineticVortexScene::activate() {
     isPaused_ = false;
     ofSetWindowTitle("Depth Kinetic Vortex");
     ofSetFrameRate(60);
-    ofBackground(cNoche());
+    ofBackground(0);
 }
 
 void DepthKineticVortexScene::deactivate() {
@@ -105,8 +105,8 @@ void DepthKineticVortexScene::draw() {
         ofColor col = cMagenta().getLerped(cCore(), t);
         float a = ofMap(p.life / p.maxLife, 0.0f, 1.0f, 200.0f, 0.0f);
         ofSetColor(col, ofClamp(a, 0.0f, 255.0f));
-        ofSetLineWidth(1.5f);
-        ofDrawLine(p.pos, p.pos - p.vel);
+        ofSetLineWidth(3.0f);
+        ofDrawLine(p.pos, p.pos - p.vel * 1.5f);
     }
 
     auto it = interactionPoints_.find("spine_mid");

@@ -744,6 +744,7 @@ void OrganicNetScene::mouseDragged(int, int, int) {}
 void OrganicNetScene::mouseMoved(int, int) {}
 
 void OrganicNetScene::windowResized(int, int) {
+    buildNet();
     float bg = 10.0f;
     auto& registry = ParameterRegistry::getGlobal();
     if (auto param = registry.getParam("global.backgroundColor")) bg = param->currentValue;

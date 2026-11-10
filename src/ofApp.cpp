@@ -3,7 +3,6 @@
 #include "mapping/ParameterTypes.h"
 #include "scenes/FurryScene.h"
 #include "scenes/RibbonDanceScene.h"
-#include "scenes/ParticleSwarmScene.h"
 #include "scenes/OrganicNetScene.h"
 #include "scenes/EnjambreOrganicoScene.h"
 #include "scenes/TrappedBodyNetScene.h"
@@ -66,9 +65,6 @@ void ofApp::setup(){
     modular::ScenePtr ribbonScene = modular::CreateRibbonDanceScene();
     sceneEngine.loadScene(ribbonScene->getId(), ribbonScene);  // "ribbonDance" — no auto-activate
     
-    modular::ScenePtr swarmScene = modular::CreateParticleSwarmScene();
-    sceneEngine.loadScene(swarmScene->getId(), swarmScene);  // "particleSwarm"
-    
     modular::ScenePtr netScene = modular::CreateOrganicNetScene();
     sceneEngine.loadScene(netScene->getId(), netScene);  // "organicNet"
     
@@ -83,9 +79,6 @@ void ofApp::setup(){
     
     modular::ScenePtr bcpScene = modular::CreateBodyContourPaintScene();
     sceneEngine.loadScene(bcpScene->getId(), bcpScene);  // "bodyContourPaint"
-
-    modular::ScenePtr gdScene = modular::CreateGridDissolveScene();
-    sceneEngine.loadScene(gdScene->getId(), gdScene);  // "gridDissolve"
 
     modular::ScenePtr dssScene = modular::CreateDepthSliceScanScene();
     sceneEngine.loadScene(dssScene->getId(), dssScene);  // "depthSliceScan" (3D)
@@ -427,6 +420,19 @@ void ofApp::update(){
 }
 
 void ofApp::draw(){
+    // Vista de cámara RGB (V) — semi-transparente para que los visuales se vean encima.
+    if (showRgb_ && kinectAdapter_) {
+        auto* ob = dynamic_cast<modular::OrbbecAdapter*>(kinectAdapter_.get());
+        if (ob && ob->hasColorTexture()) {
+            ofPushStyle();
+            ofEnableBlendMode(OF_BLENDMODE_ALPHA);
+            ofSetColor(255, 255, 255, 110);   // ~43% opacidad
+            ob->getColorTexture().draw(0, 0, ofGetWidth(), ofGetHeight());
+            ofDisableBlendMode();
+            ofPopStyle();
+        }
+    }
+
     sceneEngine.draw();
     
     // Draw skeleton overlay (after scene, before UI)
@@ -678,6 +684,12 @@ void ofApp::keyPressed(int key){
         thresholdToastTimer_ = 2.5f;
         thresholdToastValue_ = t;
         ofLogNotice("DepthStore") << "Umbral silueta: " << t << " mm";
+    }
+
+    // Vista de cámara RGB (V)
+    if (key == 'v' || key == 'V') {
+        showRgb_ = !showRgb_;
+        ofLogNotice("ofApp") << "Vista RGB: " << (showRgb_ ? "ON" : "OFF") << " (V)";
     }
     
     // Reset Kinect/MediaPipe tracking (R) — only when ImGui is not capturing keyboard

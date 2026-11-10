@@ -41,7 +41,7 @@ def build_pose():
     opts = PoseLandmarkerOptions(
         base_options=BaseOptions(model_asset_path=MODEL),
         running_mode=VisionRunningMode.VIDEO,
-        num_poses=1,
+        num_poses=4,
         min_pose_detection_confidence=0.4,
         min_pose_presence_confidence=0.4,
         min_tracking_confidence=0.4,
@@ -65,10 +65,12 @@ def send_json(conn, obj):
 
 
 def pose_to_list(result):
+    # Devuelve una LISTA de poses; cada pose es una lista de 33 landmarks.
     out = []
     if result.pose_landmarks:
-        for lm in result.pose_landmarks[0]:
-            out.append({"x": lm.x, "y": lm.y, "z": lm.z, "visibility": lm.visibility})
+        for pose_lm in result.pose_landmarks:
+            pts = [{"x": lm.x, "y": lm.y, "z": lm.z, "visibility": lm.visibility} for lm in pose_lm]
+            out.append(pts)
     return out
 
 

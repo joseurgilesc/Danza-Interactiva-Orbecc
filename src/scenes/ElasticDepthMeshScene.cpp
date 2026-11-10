@@ -27,7 +27,7 @@ void ElasticDepthMeshScene::buildGrid() {
 void ElasticDepthMeshScene::setup() {
     ofEnableAlphaBlending();
     ofSetBackgroundAuto(true);
-    ofBackground(cNoche());
+    ofBackground(0);
     buildGrid();
 }
 
@@ -36,7 +36,7 @@ void ElasticDepthMeshScene::activate() {
     isPaused_ = false;
     ofSetWindowTitle("Elastic Depth Mesh");
     ofSetFrameRate(60);
-    ofBackground(cNoche());
+    ofBackground(0);
 }
 
 void ElasticDepthMeshScene::deactivate() {

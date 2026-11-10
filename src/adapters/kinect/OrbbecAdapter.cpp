@@ -78,18 +78,32 @@ void OrbbecAdapter::shutdown() {
 void OrbbecAdapter::update() {
     grabLatestFrame();
 
-    // Read latest pose from the detector thread.
-    std::vector<std::array<float, 3>> pose;
-    std::vector<float> vis;
+    // Read latest poses (multi-person) from the detector thread.
+    std::vector<std::vector<std::array<float, 3>>> poses;
+    std::vector<std::vector<float>> visList;
     {
         std::lock_guard<std::mutex> lock(poseMutex_);
-        pose = latestPose_;
-        vis  = latestVis_;
+        poses = latestPoses_;
+        visList = latestVisList_;
     }
 
-    if (pose.size() >= 33) {
-        applyPose(pose, vis);
-        fireFrameCallbacks();
+    bool any = false;
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        trackedBodies_.clear();
+    }
+    for (size_t i = 0; i < poses.size() && i < 4; i++) {
+        if (poses[i].size() < 33) continue;
+        applyPose(poses[i], visList[i], static_cast<int>(i) + 1);
+        {
+            std::lock_guard<std::mutex> lock(mutex_);
+            trackedBodies_.push_back(currentBody_);
+        }
+        fireFrameCallbacks(currentBody_);
+        any = true;
+    }
+
+    if (any) {
         presence_ = 1.0f;
     } else {
         // No detection: decay presence toward 0 for smooth fade.
@@ -190,12 +204,17 @@ void OrbbecAdapter::grabLatestFrame() {
         }
     }
 
-    // Color: subsample to 480x270 and push to detector.
+    // Color: guardar textura RGB (para vista de cámara) + subsample al detector.
     auto colorFrame = fs->getColorFrame();
     if (colorFrame) {
         int w = colorFrame->getWidth(), h = colorFrame->getHeight();
         if (colorFrame->getFormat() == OB_FORMAT_RGB && w > 0 && h > 0) {
             const uint8_t *src = static_cast<const uint8_t *>(colorFrame->getData());
+
+            // Textura RGB completa (para la vista de cámara).
+            colorPixels_.setFromPixels(src, w, h, OF_IMAGE_COLOR);
+            colorTex_.loadData(colorPixels_);
+
             const int dw = 480, dh = 270;
             std::vector<unsigned char> rgb(dw * dh * 3);
             for (int y = 0; y < dh; y++) {
@@ -280,17 +299,27 @@ void OrbbecAdapter::detectorLoop() {
 
             try {
                 json j = json::parse(jsonStr);
-                std::vector<std::array<float, 3>> pose;
-                std::vector<float> vis;
+                // "pose" es una LISTA de poses (multi-persona); cada pose es una
+                // lista de 33 landmarks {x,y,z,visibility}.
+                std::vector<std::vector<std::array<float, 3>>> poses;
+                std::vector<std::vector<float>> visList;
                 if (j.contains("pose") && j["pose"].is_array()) {
-                    for (auto &lm : j["pose"]) {
-                        pose.push_back({lm.value("x", 0.f), lm.value("y", 0.f), lm.value("z", 0.f)});
-                        vis.push_back(lm.value("visibility", 0.f));
+                    for (auto &poseArr : j["pose"]) {
+                        std::vector<std::array<float, 3>> pts;
+                        std::vector<float> vis;
+                        for (auto &lm : poseArr) {
+                            pts.push_back({lm.value("x", 0.f), lm.value("y", 0.f), lm.value("z", 0.f)});
+                            vis.push_back(lm.value("visibility", 0.f));
+                        }
+                        if (pts.size() >= 33) {
+                            poses.push_back(std::move(pts));
+                            visList.push_back(std::move(vis));
+                        }
                     }
                 }
                 std::lock_guard<std::mutex> lock(poseMutex_);
-                latestPose_ = std::move(pose);
-                latestVis_  = std::move(vis);
+                latestPoses_ = std::move(poses);
+                latestVisList_ = std::move(visList);
             } catch (std::exception &) {
                 // malformed JSON: ignore
             }
@@ -337,7 +366,7 @@ float OrbbecAdapter::sampleDepthNormalized(float nx, float ny) const {
 }
 
 void OrbbecAdapter::applyPose(const std::vector<std::array<float, 3>> &pts,
-                              const std::vector<float> &vis) {
+                              const std::vector<float> &vis, int bodyId) {
     auto lm = [&](int i) -> std::array<float, 3> {
         return (i >= 0 && i < (int)pts.size()) ? pts[i] : std::array<float, 3>{0.5f, 0.5f, 0.0f};
     };
@@ -377,12 +406,23 @@ void OrbbecAdapter::applyPose(const std::vector<std::array<float, 3>> &pts,
     setRaw(JointType::SPINE_MID, shoMidX, shoMidY, std::max(lv(11), lv(12)));
     setRaw(JointType::SPINE_BASE, hipMidX, hipMidY, std::max(lv(23), lv(24)));
 
-    // Seed from previous frame so skipped/low-confidence joints retain position.
-    currentBody_.bodyId = 1;
+    // Seed desde el frame previo (cuerpo 1) o neutral (cuerpos adicionales).
+    currentBody_.bodyId = bodyId;
     currentBody_.isTracked = false;
+
+    static TrackedBody neutral{};
+    static bool neutralInit = false;
+    if (!neutralInit) {
+        for (int i = 0; i < static_cast<int>(JointType::COUNT); ++i) {
+            neutral.joints[i].position = {0.5f, 0.5f, 0.5f};
+        }
+        neutralInit = true;
+    }
+    const TrackedBody& prev = (bodyId == 1) ? previousBody_ : neutral;
+
     for (int i = 0; i < static_cast<int>(JointType::COUNT); ++i) {
         currentBody_.joints[i].type       = static_cast<JointType>(i);
-        currentBody_.joints[i].position   = previousBody_.joints[i].position;
+        currentBody_.joints[i].position   = prev.joints[i].position;
         currentBody_.joints[i].velocity   = {0.0f, 0.0f, 0.0f};
         currentBody_.joints[i].confidence = 0.0f;
     }
@@ -396,33 +436,27 @@ void OrbbecAdapter::applyPose(const std::vector<std::array<float, 3>> &pts,
         float newY = r.y;
         float newZ = zReal;
 
-        const auto &prev = previousBody_.joints[i].position;
+        const auto &prevPos = prev.joints[i].position;
         float s = smoothingFactor_;
         currentBody_.joints[i].confidence = r.conf;
-        currentBody_.joints[i].position.x = ofLerp(prev.x, newX, s);
-        currentBody_.joints[i].position.y = ofLerp(prev.y, newY, s);
-        currentBody_.joints[i].position.z = ofLerp(prev.z, newZ, s);
+        currentBody_.joints[i].position.x = ofLerp(prevPos.x, newX, s);
+        currentBody_.joints[i].position.y = ofLerp(prevPos.y, newY, s);
+        currentBody_.joints[i].position.z = ofLerp(prevPos.z, newZ, s);
     }
 
     currentBody_.isTracked = true;
     currentBody_.confidence = 1.0f;
-    previousBody_ = currentBody_;
+    if (bodyId == 1) previousBody_ = currentBody_;
 }
 
-void OrbbecAdapter::fireFrameCallbacks() {
-    {
-        std::lock_guard<std::mutex> lock(mutex_);
-        trackedBodies_.clear();
-        trackedBodies_.push_back(currentBody_);
-    }
-
-    if (bodyCallback_) bodyCallback_(currentBody_);
+void OrbbecAdapter::fireFrameCallbacks(const TrackedBody& body) {
+    if (bodyCallback_) bodyCallback_(body);
 
     if (jointCallback_) {
         for (int i = 0; i < static_cast<int>(JointType::COUNT); ++i) {
-            const auto &joint = currentBody_.joints[i];
+            const auto &joint = body.joints[i];
             if (joint.confidence >= confidenceThreshold_) {
-                jointCallback_(currentBody_.bodyId, joint.type, joint);
+                jointCallback_(body.bodyId, joint.type, joint);
             }
         }
     }

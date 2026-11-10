@@ -11,7 +11,7 @@ BodySilhouetteScene::~BodySilhouetteScene() {}
 void BodySilhouetteScene::setup() {
     ofEnableAlphaBlending();
     ofSetBackgroundAuto(true);
-    ofBackground(cNoche());
+    ofBackground(0);
     particles_.reserve(maxParticles_);
 }
 
@@ -20,7 +20,7 @@ void BodySilhouetteScene::activate() {
     isPaused_ = false;
     ofSetWindowTitle("Body Silhouette (depth)");
     ofSetFrameRate(60);
-    ofBackground(cNoche());
+    ofBackground(0);
 }
 
 void BodySilhouetteScene::deactivate() {

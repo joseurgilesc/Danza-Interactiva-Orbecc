@@ -11,7 +11,7 @@ SilhouetteDepthTunnelScene::~SilhouetteDepthTunnelScene() {}
 void SilhouetteDepthTunnelScene::setup() {
     ofEnableAlphaBlending();
     ofSetBackgroundAuto(true);
-    ofBackground(cNoche());
+    ofBackground(0);
 }
 
 void SilhouetteDepthTunnelScene::activate() {
@@ -19,7 +19,7 @@ void SilhouetteDepthTunnelScene::activate() {
     isPaused_ = false;
     ofSetWindowTitle("Silhouette Depth Tunnel");
     ofSetFrameRate(60);
-    ofBackground(cNoche());
+    ofBackground(0);
     history_.clear();
     sinceRing_ = 0.0f;
 }

@@ -2,6 +2,9 @@
 
 #include "IKinectAdapter.h"
 
+#include "ofTexture.h"
+#include "ofPixels.h"
+
 #include <libobsensor/ObSensor.hpp>
 
 #include <array>
@@ -72,16 +75,20 @@ public:
     int getDepthWidth() const;
     int getDepthHeight() const;
 
+    // Textura de la cámara RGB (para vista de cámara con atajo).
+    const ofTexture& getColorTexture() const { return colorTex_; }
+    bool hasColorTexture() const { return colorTex_.isAllocated(); }
+
 private:
     bool setupCamera();
     void detectorLoop();
     void grabLatestFrame();
     void pushFrameToDetector(const std::vector<unsigned char>& rgb, int w, int h);
     void applyPose(const std::vector<std::array<float, 3>>& pts,
-                   const std::vector<float>& vis);
+                   const std::vector<float>& vis, int bodyId);
     JointType landmarkIndexToJointType(int index) const;
     float sampleDepthNormalized(float nx, float ny) const;
-    void fireFrameCallbacks();
+    void fireFrameCallbacks(const TrackedBody& body);
 
     // --- Camera ---
     std::shared_ptr<ob::Pipeline> pipe_;
@@ -93,6 +100,9 @@ private:
     int depthW_ = 0, depthH_ = 0;
     int colorW_ = 0, colorH_ = 0;
 
+    ofTexture colorTex_;     // textura de la cámara RGB (para vista de cámara)
+    ofPixels colorPixels_;   // buffer de píxeles del color
+
     // --- Detector (TCP) ---
     std::thread detectorThread_;
     std::atomic<bool> detectorRunning_{false};
@@ -102,11 +112,11 @@ private:
     int pendingW_ = 0, pendingH_ = 0;
     int detectorPort_ = 5005;
 
-    // Latest pose result from the detector thread (written by detector thread,
-    // read by update() on the main thread).
+    // Latest pose results from the detector thread (written by detector thread,
+    // read by update() on the main thread). Multi-person: lista de poses.
     std::mutex poseMutex_;
-    std::vector<std::array<float, 3>> latestPose_;
-    std::vector<float> latestVis_;
+    std::vector<std::vector<std::array<float, 3>>> latestPoses_;
+    std::vector<std::vector<float>> latestVisList_;
 
     // --- Body state ---
     std::vector<TrackedBody> trackedBodies_;

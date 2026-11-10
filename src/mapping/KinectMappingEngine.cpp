@@ -307,6 +307,10 @@ float KinectMappingEngine::scaleValue(float input, const KinectMapping& mapping)
 void KinectMappingEngine::processJointData(int bodyId, JointType jointType, const Joint& joint) {
     // 1. Build joint source name (e.g. "hand_right")
     std::string jointName = jointTypeToName(jointType);
+
+    // Multi-persona: el cuerpo 2 usa el sufijo "_2", el 3 "_3", etc., para que
+    // cada persona tenga sus propios interaction points en la escena.
+    std::string bodySuffix = (bodyId > 1) ? ("_" + std::to_string(bodyId)) : "";
     
     // Cache NECK and SPINE_MID positions for body-center zoom
     if (jointType == JointType::NECK) {
@@ -376,9 +380,9 @@ void KinectMappingEngine::processJointData(int bodyId, JointType jointType, cons
                 // happens in InteractionPoint::setTarget inside the scene.
                 if (mapping.transformType == KinectTransformType::VEC3_XYZ) {
                     // Include real depth (z) for body relation.
-                    scene->setParameter(localParamId, glm::vec3(scaledX, scaledY, joint.position.z));
+                    scene->setParameter(localParamId + bodySuffix, glm::vec3(scaledX, scaledY, joint.position.z));
                 } else {
-                    scene->setParameter(localParamId, glm::vec2(scaledX, scaledY));
+                    scene->setParameter(localParamId + bodySuffix, glm::vec2(scaledX, scaledY));
                 }
             }
             continue;  // skip SCALAR path below
@@ -426,7 +430,7 @@ void KinectMappingEngine::processJointData(int bodyId, JointType jointType, cons
         }
 
         // 10. Dispatch to scene parameter
-        scene->setParameter(localParamId, smoothed);
+        scene->setParameter(localParamId + bodySuffix, smoothed);
     }
 }
 
