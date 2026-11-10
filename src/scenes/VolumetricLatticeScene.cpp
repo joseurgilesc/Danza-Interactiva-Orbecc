@@ -75,20 +75,21 @@ void VolumetricLatticeScene::update(float dt) {
             e.pos = j.pos;
             e.size = 6.0f;
             e.rotation = ofRandom(0.0f, glm::two_pi<float>());
-            e.rotSpeed = ofRandom(-0.4f, 0.4f);
+            e.rotSpeed = ofRandom(-0.2f, 0.2f);
             e.alpha = 1.0f;
             e.color = proximityColor(j.proximity);
             echoes_.push_back(e);
         }
     }
     for (auto& e : echoes_) {
-        e.size += 110.0f * dt;
-        e.rotation += e.rotSpeed * dt * 60.0f;
-        e.alpha *= (1.0f - 0.35f * dt);
+        e.size += 50.0f * dt;              // crecimiento suave
+        e.rotation += e.rotSpeed * dt * 40.0f;
+        e.pos.y -= 35.0f * dt;             // gravedad: caen suavemente
+        e.alpha *= (1.0f - 0.25f * dt);
         if (e.alpha < 0.0f) e.alpha = 0.0f;
     }
     echoes_.erase(std::remove_if(echoes_.begin(), echoes_.end(),
-        [](const PolyEcho& e) { return e.alpha <= 0.001f || e.size > 220.0f; }), echoes_.end());
+        [](const PolyEcho& e) { return e.alpha <= 0.001f || e.size > 160.0f; }), echoes_.end());
 }
 
 void VolumetricLatticeScene::draw() {

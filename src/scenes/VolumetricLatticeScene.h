@@ -75,7 +75,7 @@ private:
 
     std::vector<PolyEcho> echoes_;
     size_t maxEchoes_ = 300;
-    int emitEvery_ = 6;
+    int emitEvery_ = 12;
     int frameCount_ = 0;
 };
 

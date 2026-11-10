@@ -442,16 +442,10 @@ void ofApp::draw(){
     
     // Draw skeleton overlay (after scene, before UI)
     if (skeletonView_ && sceneEngine.isShowSkeleton()) {
-        // Smoothly track presence for fade transitions
-        float targetPresence = kinectAdapter_ ? kinectAdapter_->getTrackingPresence() : 0.0f;
-        skeletonAlpha_ = ofLerp(skeletonAlpha_, targetPresence, 0.1f);
-        skeletonView_->setAlpha(skeletonAlpha_);
-
-        if (skeletonAlpha_ > 0.01f) {
-            auto bodies = kinectAdapter_->getAllTrackedBodies();
-            if (!bodies.empty()) {
-                skeletonView_->draw(bodies[0], ofGetWidth(), ofGetHeight());
-            }
+        auto bodies = kinectAdapter_->getAllTrackedBodies();
+        if (!bodies.empty() && bodies[0].isTracked) {
+            skeletonView_->setAlpha(1.0f);
+            skeletonView_->draw(bodies[0], ofGetWidth(), ofGetHeight());
         }
     }
     

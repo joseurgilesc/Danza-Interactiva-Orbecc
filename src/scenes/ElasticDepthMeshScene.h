@@ -73,10 +73,10 @@ private:
     ofCamera cam_;
     ofVboMesh mesh_;
 
-    int cols_ = 32;
-    int rows_ = 24;
-    float influenceRadius_ = 180.0f;   // radio (XY) de influencia de cada joint
-    float springK_ = 0.1f;             // rigidez del resorte de reposo
+    int cols_ = 24;
+    int rows_ = 18;
+    float influenceRadius_ = 120.0f;   // radio (XY) de influencia de cada joint
+    float springK_ = 0.06f;            // rigidez del resorte de reposo
 };
 
 ScenePtr CreateElasticDepthMeshScene();

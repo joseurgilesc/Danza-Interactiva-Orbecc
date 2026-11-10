@@ -83,7 +83,7 @@ void ElasticDepthMeshScene::update(float dt) {
         float falloff = 1.0f - (bestDist2 / rad2);   // 1 = justo encima, 0 = borde
         if (falloff > 0.0f) {
             // Fuerza hacia el Z objetivo (proporcional a la proximidad en XY).
-            n.vel.z += (targetZ - n.pos.z) * 0.25f * falloff;
+            n.vel.z += (targetZ - n.pos.z) * 0.15f * falloff;
         }
 
         // Resorte de reposo: tiende a volver a restPos.

@@ -75,6 +75,18 @@ void DepthKineticVortexScene::update(float dt) {
         lastPos_[e.first] = cur;
     }
 
+    // Gesto: manos juntas → ráfaga especial (objetos extra) en el punto medio.
+    auto hl = interactionPoints_.find("hand_left");
+    auto hr = interactionPoints_.find("hand_right");
+    if (hl != interactionPoints_.end() && hr != interactionPoints_.end() &&
+        hl->second.active && hr->second.active) {
+        ofVec3f wl = hl->second.worldPos(w, h);
+        ofVec3f wr = hr->second.worldPos(w, h);
+        if ((wl - wr).length() < 130.0f) {
+            emitBurst((wl + wr) * 0.5f, 28.0f);   // ráfaga grande de "unión"
+        }
+    }
+
     // Integrar partículas: fricción + vida.
     for (auto& p : particles_) {
         p.life += dt;
