@@ -12,14 +12,18 @@
 
 namespace modular {
 
-struct ZPlane {
-    float z;            // profundidad de mundo (cerca +400 → lejos -800)
-    float baseRadius;   // radio base de los anillos concéntricos
+struct Ripple {
+    ofVec3f pos;
+    float radius = 0.0f;
+    float maxRadius = 240.0f;
+    float alpha = 1.0f;
+    ofColor color;
 };
 
 // ---------------------------------------------------------------------------
-// DepthSliceScan — Fase I "Origen". El escáner detecta la presencia del cuerpo
-// como planos Z estáticos que "se encienden" cuando el cuerpo pasa cerca.
+// DepthSliceScan — Fase I "Origen" (rework).
+// Ondas de energía que emanan de las articulaciones del cuerpo: anillos 3D que
+// se expanden y desvanecen desde cada joint (claro que nace del cuerpo).
 // ---------------------------------------------------------------------------
 class DepthSliceScanScene : public IBaseScene {
 public:
@@ -62,12 +66,15 @@ public:
     void windowResized(int,int) override;
 
 private:
-    std::vector<ZPlane> planes_;
+    std::vector<Ripple> ripples_;
     std::map<std::string, InteractionPoint> interactionPoints_;
     std::map<std::string, std::shared_ptr<Parameter>> params_;
     bool isActive_ = false, isPaused_ = false;
     ofCamera cam_;
-    float scanTime_ = 0.0f;
+
+    size_t maxRipples_ = 400;
+    int emitEvery_ = 4;   // frames entre emisiones por joint
+    int frameCount_ = 0;
 };
 
 ScenePtr CreateDepthSliceScanScene();

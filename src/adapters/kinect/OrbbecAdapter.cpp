@@ -92,7 +92,7 @@ void OrbbecAdapter::update() {
         std::lock_guard<std::mutex> lock(mutex_);
         trackedBodies_.clear();
     }
-    for (size_t i = 0; i < poses.size() && i < 4; i++) {
+    for (size_t i = 0; i < poses.size() && i < 8; i++) {
         if (poses[i].size() < 33) continue;
         applyPose(poses[i], visList[i], static_cast<int>(i) + 1);
         {

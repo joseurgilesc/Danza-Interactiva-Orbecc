@@ -5,6 +5,18 @@
 
 namespace modular {
 
+// Huesos del esqueleto (pares de joints que se conectan).
+static const std::pair<const char*, const char*> kBones[] = {
+    {"head", "neck"},
+    {"neck", "shoulder_left"}, {"neck", "shoulder_right"},
+    {"shoulder_left", "elbow_left"}, {"elbow_left", "wrist_left"}, {"wrist_left", "hand_left"},
+    {"shoulder_right", "elbow_right"}, {"elbow_right", "wrist_right"}, {"wrist_right", "hand_right"},
+    {"neck", "spine_mid"}, {"spine_mid", "spine_base"},
+    {"spine_base", "hip_left"}, {"spine_base", "hip_right"},
+    {"hip_left", "knee_left"}, {"knee_left", "ankle_left"},
+    {"hip_right", "knee_right"}, {"knee_right", "ankle_right"},
+};
+
 SilhouetteDepthTunnelScene::SilhouetteDepthTunnelScene() {}
 SilhouetteDepthTunnelScene::~SilhouetteDepthTunnelScene() {}
 
@@ -17,11 +29,9 @@ void SilhouetteDepthTunnelScene::setup() {
 void SilhouetteDepthTunnelScene::activate() {
     isActive_ = true;
     isPaused_ = false;
-    ofSetWindowTitle("Silhouette Depth Tunnel");
+    ofSetWindowTitle("Body Joints");
     ofSetFrameRate(60);
     ofBackground(0);
-    history_.clear();
-    sinceRing_ = 0.0f;
 }
 
 void SilhouetteDepthTunnelScene::deactivate() {
@@ -36,59 +46,6 @@ void SilhouetteDepthTunnelScene::update(float dt) {
     if (!isActive_ || isPaused_) return;
     dt = glm::clamp(dt, 0.0f, 0.1f);
     for (auto& e : interactionPoints_) e.second.update(dt);
-
-    const float w = ofGetWidth();
-    const float h = ofGetHeight();
-
-    // Silueta REAL del depth (contorno píxel a píxel) o convex hull de joints.
-    auto& depth = DepthStore::instance();
-    std::vector<glm::vec2> pts;
-    ofVec3f chest(0.0f, 0.0f, 0.0f);
-    bool hasChest = false;
-
-    for (const auto& e : interactionPoints_) {
-        if (!e.second.active) continue;
-        if (e.first == "spine_mid") { chest = e.second.worldPos(w, h); hasChest = true; }
-    }
-
-    if (depth.hasData()) {
-        auto cps = depth.contourPoints();
-        pts.reserve(cps.size());
-        for (auto& cp : cps) {
-            pts.push_back(glm::vec2(
-                ofMap(cp.x, 0.0f, 1.0f, -kWorldHalfW, kWorldHalfW),
-                ofMap(cp.y, 0.0f, 1.0f, kWorldHalfH, -kWorldHalfH)));
-        }
-    } else {
-        for (const auto& e : interactionPoints_) {
-            if (!e.second.active) continue;
-            ofVec3f wp = e.second.worldPos(w, h);
-            pts.push_back(glm::vec2(wp.x, wp.y));
-        }
-        pts = computeConvexHull(pts);
-    }
-
-    // Emitir un anillo nuevo cada ringEvery_ segundos.
-    sinceRing_ += dt;
-    if (sinceRing_ >= ringEvery_ && pts.size() >= 3) {
-        sinceRing_ = 0.0f;
-        TunnelRing ring;
-        ring.hull = computeConvexHull(pts);
-        ring.z = hasChest ? chest.z : 0.0f;
-        ring.alpha = 1.0f;
-        history_.push_back(std::move(ring));
-        if (history_.size() > maxRings_) history_.pop_front();
-    }
-
-    // Retroceder los anillos en Z y desvanecerlos.
-    for (auto& ring : history_) {
-        ring.z -= tunnelSpeed_ * dt;
-        ring.alpha *= (1.0f - 0.15f * dt);
-        if (ring.alpha < 0.0f) ring.alpha = 0.0f;
-    }
-    while (!history_.empty() && history_.front().z < kWorldFarZ) {
-        history_.pop_front();
-    }
 }
 
 void SilhouetteDepthTunnelScene::draw() {
@@ -104,34 +61,39 @@ void SilhouetteDepthTunnelScene::draw() {
 
     beginGenesisCamera(cam_, w, h);
 
-    // Dibujar anillos + conectar anillos consecutivos (paredes del túnel).
+    auto world = [&](const std::string& name, ofVec3f& out) -> bool {
+        auto it = interactionPoints_.find(name);
+        if (it == interactionPoints_.end() || !it->second.active) return false;
+        out = it->second.worldPos(w, h);
+        return true;
+    };
+
+    // Huesos: líneas que conectan articulaciones (color por proximidad media).
     ofNoFill();
-    ofSetLineWidth(1.0f);
+    ofSetLineWidth(2.0f);
+    for (const auto& bone : kBones) {
+        ofVec3f a, b;
+        if (!world(bone.first, a) || !world(bone.second, b)) continue;
+        float prox = 0.5f * ((1.0f - interactionPoints_[bone.first].z) + (1.0f - interactionPoints_[bone.second].z));
+        ofColor col = proximityColor(prox);
+        ofSetColor(col, 140);
+        ofDrawLine(a, b);
+    }
 
-    for (size_t i = 0; i < history_.size(); i++) {
-        const TunnelRing& ring = history_[i];
-        // Color: frente (nuevo) cNeon, fondo (viejo) cMagenta.
-        float age = static_cast<float>(i) / static_cast<float>(history_.size());
-        ofColor col = cNeon().getLerped(cMagenta(), age);
-        ofSetColor(col, ofClamp(ring.alpha * 180.0f, 0.0f, 255.0f));
-
-        // Dibujar el polígono del anillo en su Z.
-        ofPushMatrix();
-        ofTranslate(0.0f, 0.0f, ring.z);
-        ofBeginShape();
-        for (const auto& v : ring.hull) ofVertex(v.x, v.y);
-        ofEndShape(true);  // cerrado
-        ofPopMatrix();
-
-        // Conectar con el anillo anterior (paredes del túnel).
-        if (i > 0) {
-            const TunnelRing& prev = history_[i - 1];
-            size_t n = std::min(ring.hull.size(), prev.hull.size());
-            for (size_t k = 0; k < n; k++) {
-                ofDrawLine(prev.hull[k].x, prev.hull[k].y, prev.z,
-                           ring.hull[k].x, ring.hull[k].y, ring.z);
-            }
-        }
+    // Articulaciones: esferas brillantes (tamaño según confianza, color por proximidad).
+    ofFill();
+    for (const auto& e : interactionPoints_) {
+        if (!e.second.active) continue;
+        ofVec3f p = e.second.worldPos(w, h);
+        float prox = 1.0f - e.second.z;
+        ofColor col = proximityColor(prox);
+        float pulse = 1.0f + 0.15f * sin(now * 3.0f + p.x * 0.01f);
+        float r = (4.0f + 8.0f * prox) * pulse;
+        ofSetColor(col, 200);
+        ofDrawSphere(p, r);
+        // Halo suave.
+        ofSetColor(col, 50);
+        ofDrawSphere(p, r * 2.2f);
     }
 
     auto it = interactionPoints_.find("spine_mid");
@@ -147,7 +109,7 @@ void SilhouetteDepthTunnelScene::draw() {
 
 // ── boilerplate ───────────────────────────────────────────────────────────
 std::string SilhouetteDepthTunnelScene::getId() const { return "silhouetteDepthTunnel"; }
-std::string SilhouetteDepthTunnelScene::getName() const { return "Silhouette Depth Tunnel"; }
+std::string SilhouetteDepthTunnelScene::getName() const { return "Body Joints"; }
 std::vector<std::string> SilhouetteDepthTunnelScene::getParameterIds() const {
     std::vector<std::string> ids; for (auto& e : params_) ids.push_back(e.first); return ids;
 }
@@ -181,16 +143,16 @@ Preset SilhouetteDepthTunnelScene::getDefaultPreset() const {
 }
 SceneMetadata SilhouetteDepthTunnelScene::getSceneMetadata() const {
     SceneMetadata m; m.id = getId(); m.name = getName();
-    m.description = "Fase IV (Trascendencia): la silueta (convex hull) se proyecta hacia atrás en Z como un túnel volumétrico.";
+    m.description = "Fase IV (Trascendencia): constelación de joints del cuerpo (esferas + huesos) con profundidad real.";
     m.author = "Génesis Volumétrica"; m.version = "1.0.0";
-    m.tags = {"3d", "silhouette", "tunnel", "hull", "volumetric"}; m.category = "volumetric";
-    m.hasInternalState = true; m.isTimeBased = true; m.estimatedDuration = 0;
+    m.tags = {"3d", "joints", "skeleton", "depth", "volumetric"}; m.category = "volumetric";
+    m.hasInternalState = true; m.isTimeBased = false; m.estimatedDuration = 0;
     return m;
 }
 void SilhouetteDepthTunnelScene::onBeat(int) {} void SilhouetteDepthTunnelScene::onBar(int) {}
 bool SilhouetteDepthTunnelScene::isValid() const { return true; }
 std::string SilhouetteDepthTunnelScene::getInvalidReason() const { return ""; }
-void SilhouetteDepthTunnelScene::unloadResources() { history_.clear(); }
+void SilhouetteDepthTunnelScene::unloadResources() { interactionPoints_.clear(); }
 void SilhouetteDepthTunnelScene::reloadResources() { setup(); }
 void SilhouetteDepthTunnelScene::keyPressed(int) {} void SilhouetteDepthTunnelScene::keyReleased(int) {}
 void SilhouetteDepthTunnelScene::mousePressed(int, int, int) {} void SilhouetteDepthTunnelScene::mouseReleased(int, int, int) {}

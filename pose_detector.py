@@ -41,7 +41,7 @@ def build_pose():
     opts = PoseLandmarkerOptions(
         base_options=BaseOptions(model_asset_path=MODEL),
         running_mode=VisionRunningMode.VIDEO,
-        num_poses=4,
+        num_poses=8,
         min_pose_detection_confidence=0.4,
         min_pose_presence_confidence=0.4,
         min_tracking_confidence=0.4,

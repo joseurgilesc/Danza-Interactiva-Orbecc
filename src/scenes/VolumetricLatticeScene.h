@@ -12,9 +12,18 @@
 
 namespace modular {
 
+struct PolyEcho {
+    ofVec3f pos;
+    float size = 0.0f;
+    float rotation = 0.0f;
+    float rotSpeed = 0.0f;
+    float alpha = 1.0f;
+    ofColor color;
+};
+
 // ---------------------------------------------------------------------------
-// VolumetricLattice — Fase I "Origen". El cuerpo se materializa como una malla
-// cristalina 3D: líneas que conectan articulaciones cercanas (por distancia).
+// VolumetricLattice — Fase I "Origen". Malla cristalina 3D + polígonos que se
+// expanden desde las articulaciones del cuerpo (figuras que nacen del cuerpo).
 // ---------------------------------------------------------------------------
 class VolumetricLatticeScene : public IBaseScene {
 public:
@@ -63,6 +72,11 @@ private:
     ofCamera cam_;
     ofVboMesh latticeMesh_;
     float connectionThreshold_ = 150.0f;   // distancia umbral (unidades de mundo)
+
+    std::vector<PolyEcho> echoes_;
+    size_t maxEchoes_ = 300;
+    int emitEvery_ = 6;
+    int frameCount_ = 0;
 };
 
 ScenePtr CreateVolumetricLatticeScene();

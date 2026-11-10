@@ -5,7 +5,6 @@
 #include "scenes/GenesisCommon.h"
 #include "ofMain.h"
 #include <glm/vec2.hpp>
-#include <deque>
 #include <vector>
 #include <string>
 #include <memory>
@@ -13,15 +12,10 @@
 
 namespace modular {
 
-struct TunnelRing {
-    std::vector<glm::vec2> hull;   // convex hull 2D (coordenadas de mundo X/Y)
-    float z = 0.0f;                // profundidad del anillo
-    float alpha = 1.0f;
-};
-
 // ---------------------------------------------------------------------------
-// SilhouetteDepthTunnel — Fase IV "Trascendencia". La silueta del cuerpo
-// (convex hull) se proyecta hacia atrás en Z creando un túnel volumétrico.
+// SilhouetteDepthTunnel — Fase IV "Trascendencia" (rework).
+// Constelación de joints del cuerpo: esferas brillantes en cada articulación +
+// huesos que las conectan, con profundidad real. Deja claro que nace del cuerpo.
 // ---------------------------------------------------------------------------
 class SilhouetteDepthTunnelScene : public IBaseScene {
 public:
@@ -64,16 +58,10 @@ public:
     void windowResized(int,int) override;
 
 private:
-    std::deque<TunnelRing> history_;
     std::map<std::string, InteractionPoint> interactionPoints_;
     std::map<std::string, std::shared_ptr<Parameter>> params_;
     bool isActive_ = false, isPaused_ = false;
     ofCamera cam_;
-
-    float tunnelSpeed_ = 5.0f;   // velocidad de retroceso (unidades/seg)
-    size_t maxRings_ = 60;
-    float ringEvery_ = 0.12f;    // segundos entre anillos
-    float sinceRing_ = 0.0f;
 };
 
 ScenePtr CreateSilhouetteDepthTunnelScene();

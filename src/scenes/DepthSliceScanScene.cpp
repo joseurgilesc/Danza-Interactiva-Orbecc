@@ -11,22 +11,13 @@ void DepthSliceScanScene::setup() {
     ofEnableAlphaBlending();
     ofSetBackgroundAuto(true);
     ofBackground(0);
-
-    // 6 planos Z desde cerca (+400) hasta lejos (-800).
-    planes_ = {
-        {  400.0f, 100.0f },
-        {  160.0f, 160.0f },
-        {  -80.0f, 220.0f },
-        { -320.0f, 280.0f },
-        { -560.0f, 340.0f },
-        { -800.0f, 400.0f },
-    };
+    ripples_.reserve(maxRipples_);
 }
 
 void DepthSliceScanScene::activate() {
     isActive_ = true;
     isPaused_ = false;
-    ofSetWindowTitle("Depth Slice Scan");
+    ofSetWindowTitle("Body Energy Waves");
     ofSetFrameRate(60);
     ofBackground(0);
 }
@@ -42,8 +33,35 @@ void DepthSliceScanScene::resume() { isPaused_ = false; }
 void DepthSliceScanScene::update(float dt) {
     if (!isActive_ || isPaused_) return;
     dt = glm::clamp(dt, 0.0f, 0.1f);
-    scanTime_ += dt;
     for (auto& e : interactionPoints_) e.second.update(dt);
+
+    const float w = ofGetWidth();
+    const float h = ofGetHeight();
+
+    // Emitir ondas desde cada articulación activa (rate-limitado).
+    frameCount_++;
+    if (frameCount_ % emitEvery_ == 0) {
+        for (const auto& e : interactionPoints_) {
+            if (!e.second.active) continue;
+            if (ripples_.size() >= maxRipples_) break;
+            Ripple r;
+            r.pos = e.second.worldPos(w, h);
+            r.radius = 4.0f;
+            r.maxRadius = ofRandom(120.0f, 260.0f);
+            r.alpha = 1.0f;
+            r.color = proximityColor(1.0f - e.second.z);
+            ripples_.push_back(r);
+        }
+    }
+
+    // Expandir + desvanecer.
+    for (auto& r : ripples_) {
+        r.radius += 160.0f * dt;
+        r.alpha *= (1.0f - 0.7f * dt);
+        if (r.alpha < 0.0f) r.alpha = 0.0f;
+    }
+    ripples_.erase(std::remove_if(ripples_.begin(), ripples_.end(),
+        [](const Ripple& r) { return r.alpha <= 0.001f || r.radius >= r.maxRadius; }), ripples_.end());
 }
 
 void DepthSliceScanScene::draw() {
@@ -59,49 +77,24 @@ void DepthSliceScanScene::draw() {
 
     beginGenesisCamera(cam_, w, h);
 
-    // Pecho (SPINE_MID) para el core motif.
-    ofVec3f chest(0.0f, 0.0f, 0.0f);
-    {
-        auto it = interactionPoints_.find("spine_mid");
-        if (it != interactionPoints_.end() && it->second.active) {
-            chest = it->second.worldPos(w, h);
-        }
-    }
-
-    // Por cada plano: activación según la proximidad del cuerpo a su Z.
-    for (const auto& plane : planes_) {
-        float minDist = 1e9f;
-        for (const auto& e : interactionPoints_) {
-            if (!e.second.active) continue;
-            float jz = e.second.worldPos(w, h).z;
-            float d = std::abs(jz - plane.z);
-            if (d < minDist) minDist = d;
-        }
-        float activation = (minDist < 1e9f)
-            ? ofClamp(1.0f - minDist / 400.0f, 0.0f, 1.0f) : 0.0f;
-
-        // Color: planos cercanos → neon, lejanos → magenta.
-        float t = ofMap(plane.z, kWorldNearZ, kWorldFarZ, 0.0f, 1.0f);
-        ofColor col = cNeon().getLerped(cMagenta(), t);
-
+    // Anillos expansivos en el plano XY a la profundidad de cada onda.
+    ofNoFill();
+    for (const auto& r : ripples_) {
+        float a = ofClamp(r.alpha * 200.0f, 0.0f, 255.0f);
         ofPushMatrix();
-        ofTranslate(0.0f, 0.0f, plane.z);
-        ofNoFill();
-        const int rings = 4;
-        for (int r = 0; r < rings; r++) {
-            float base = plane.baseRadius + r * 60.0f;
-            float pulse = 18.0f * sin(now * 2.0f + r * 1.3f + plane.z * 0.01f);
-            float radius = base + pulse + activation * 140.0f;
-            float a = (60.0f + 200.0f * activation) * (1.0f - r * 0.18f);
-            ofSetColor(col, ofClamp(a, 0.0f, 255.0f));
-            ofSetLineWidth(1.5f);
-            ofDrawCircle(0.0f, 0.0f, radius);
-        }
+        ofTranslate(r.pos.x, r.pos.y, r.pos.z);
+        ofSetColor(r.color, a);
+        ofSetLineWidth(1.8f);
+        ofDrawCircle(0, 0, r.radius);
+        ofSetColor(r.color, a * 0.35f);
+        ofSetLineWidth(4.0f);
+        ofDrawCircle(0, 0, r.radius * 0.85f);
         ofPopMatrix();
     }
 
-    if (chest.x != 0.0f || chest.y != 0.0f || chest.z != 0.0f) {
-        drawCoreMotif(chest, now);
+    auto it = interactionPoints_.find("spine_mid");
+    if (it != interactionPoints_.end() && it->second.active) {
+        drawCoreMotif(it->second.worldPos(w, h), now);
     }
 
     cam_.end();
@@ -112,7 +105,7 @@ void DepthSliceScanScene::draw() {
 
 // ── boilerplate ───────────────────────────────────────────────────────────
 std::string DepthSliceScanScene::getId() const { return "depthSliceScan"; }
-std::string DepthSliceScanScene::getName() const { return "Depth Slice Scan"; }
+std::string DepthSliceScanScene::getName() const { return "Body Energy Waves"; }
 std::vector<std::string> DepthSliceScanScene::getParameterIds() const {
     std::vector<std::string> ids; for (auto& e : params_) ids.push_back(e.first); return ids;
 }
@@ -146,16 +139,16 @@ Preset DepthSliceScanScene::getDefaultPreset() const {
 }
 SceneMetadata DepthSliceScanScene::getSceneMetadata() const {
     SceneMetadata m; m.id = getId(); m.name = getName();
-    m.description = "Fase I (Origen): planos Z estáticos que se encienden al paso del cuerpo (topografía de origen).";
+    m.description = "Fase I (Origen): ondas de energía que emanan de las articulaciones del cuerpo.";
     m.author = "Génesis Volumétrica"; m.version = "1.0.0";
-    m.tags = {"3d", "depth", "scan", "volumetric", "genesis"}; m.category = "volumetric";
+    m.tags = {"3d", "ripples", "energy", "depth", "volumetric"}; m.category = "volumetric";
     m.hasInternalState = true; m.isTimeBased = true; m.estimatedDuration = 0;
     return m;
 }
 void DepthSliceScanScene::onBeat(int) {} void DepthSliceScanScene::onBar(int) {}
 bool DepthSliceScanScene::isValid() const { return true; }
 std::string DepthSliceScanScene::getInvalidReason() const { return ""; }
-void DepthSliceScanScene::unloadResources() { planes_.clear(); }
+void DepthSliceScanScene::unloadResources() { ripples_.clear(); }
 void DepthSliceScanScene::reloadResources() { setup(); }
 void DepthSliceScanScene::keyPressed(int) {} void DepthSliceScanScene::keyReleased(int) {}
 void DepthSliceScanScene::mousePressed(int, int, int) {} void DepthSliceScanScene::mouseReleased(int, int, int) {}

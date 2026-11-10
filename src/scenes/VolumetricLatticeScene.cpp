@@ -64,6 +64,31 @@ void VolumetricLatticeScene::update(float dt) {
             latticeMesh_.addVertex(joints[k].pos); latticeMesh_.addColor(ck);
         }
     }
+
+    // Emitir polígonos que se expanden desde cada articulación (figuras que
+    // nacen del cuerpo y crecen).
+    frameCount_++;
+    if (frameCount_ % emitEvery_ == 0) {
+        for (const auto& j : joints) {
+            if (echoes_.size() >= maxEchoes_) break;
+            PolyEcho e;
+            e.pos = j.pos;
+            e.size = 6.0f;
+            e.rotation = ofRandom(0.0f, glm::two_pi<float>());
+            e.rotSpeed = ofRandom(-0.4f, 0.4f);
+            e.alpha = 1.0f;
+            e.color = proximityColor(j.proximity);
+            echoes_.push_back(e);
+        }
+    }
+    for (auto& e : echoes_) {
+        e.size += 110.0f * dt;
+        e.rotation += e.rotSpeed * dt * 60.0f;
+        e.alpha *= (1.0f - 0.35f * dt);
+        if (e.alpha < 0.0f) e.alpha = 0.0f;
+    }
+    echoes_.erase(std::remove_if(echoes_.begin(), echoes_.end(),
+        [](const PolyEcho& e) { return e.alpha <= 0.001f || e.size > 220.0f; }), echoes_.end());
 }
 
 void VolumetricLatticeScene::draw() {
@@ -81,6 +106,21 @@ void VolumetricLatticeScene::draw() {
 
     ofSetLineWidth(1.2f);
     latticeMesh_.draw();
+
+    // Polígonos rellenos expandiéndose desde el cuerpo.
+    ofFill();
+    for (const auto& e : echoes_) {
+        float a = ofClamp(e.alpha * 180.0f, 0.0f, 255.0f);
+        ofPushMatrix();
+        ofTranslate(e.pos);
+        ofRotateRad(e.rotation);
+        ofSetColor(e.color, a);
+        ofDrawTriangle(
+            ofVec3f(0.0f, e.size, 0.0f),
+            ofVec3f(-e.size * 0.866f, -e.size * 0.5f, 0.0f),
+            ofVec3f(e.size * 0.866f, -e.size * 0.5f, 0.0f));
+        ofPopMatrix();
+    }
 
     ofDisableBlendMode();
 
