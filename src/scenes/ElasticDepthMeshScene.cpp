@@ -94,9 +94,9 @@ void ElasticDepthMeshScene::update(float dt) {
         n.pos += n.vel * dt * 60.0f;
     }
 
-    // Reconstruir la malla de triángulos con color por desviación en Z.
+    // Reconstruir la malla (líneas/wireframe) con color por desviación en Z.
     mesh_.clear();
-    mesh_.setMode(OF_PRIMITIVE_TRIANGLES);
+    mesh_.setMode(OF_PRIMITIVE_LINES);
     for (int r = 0; r < rows_; r++) {
         for (int c = 0; c < cols_; c++) {
             const MeshNode& n = nodes_[index(c, r)];
@@ -109,14 +109,17 @@ void ElasticDepthMeshScene::update(float dt) {
             mesh_.addColor(col);
         }
     }
-    for (int r = 0; r < rows_ - 1; r++) {
+    // Líneas horizontales + verticales de la rejilla (wireframe, no relleno).
+    for (int r = 0; r < rows_; r++) {
         for (int c = 0; c < cols_ - 1; c++) {
-            int a = index(c, r);
-            int b = index(c + 1, r);
-            int d = index(c, r + 1);
-            int e = index(c + 1, r + 1);
-            mesh_.addIndex(a); mesh_.addIndex(b); mesh_.addIndex(d);
-            mesh_.addIndex(b); mesh_.addIndex(e); mesh_.addIndex(d);
+            mesh_.addIndex(index(c, r));
+            mesh_.addIndex(index(c + 1, r));
+        }
+    }
+    for (int c = 0; c < cols_; c++) {
+        for (int r = 0; r < rows_ - 1; r++) {
+            mesh_.addIndex(index(c, r));
+            mesh_.addIndex(index(c, r + 1));
         }
     }
 }

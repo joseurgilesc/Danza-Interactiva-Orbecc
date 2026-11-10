@@ -420,14 +420,19 @@ void ofApp::update(){
 }
 
 void ofApp::draw(){
-    // Vista de cámara RGB (V) — semi-transparente para que los visuales se vean encima.
+    // Vista de cámara RGB (V) — semitransparente y en espejo (como un espejo real).
     if (showRgb_ && kinectAdapter_) {
         auto* ob = dynamic_cast<modular::OrbbecAdapter*>(kinectAdapter_.get());
         if (ob && ob->hasColorTexture()) {
             ofPushStyle();
             ofEnableBlendMode(OF_BLENDMODE_ALPHA);
             ofSetColor(255, 255, 255, 110);   // ~43% opacidad
+            // Espejo horizontal: tu izquierda queda a la izquierda de la pantalla.
+            ofPushMatrix();
+            ofTranslate(ofGetWidth(), 0);
+            ofScale(-1, 1, 1);
             ob->getColorTexture().draw(0, 0, ofGetWidth(), ofGetHeight());
+            ofPopMatrix();
             ofDisableBlendMode();
             ofPopStyle();
         }
