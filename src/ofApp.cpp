@@ -657,10 +657,10 @@ void ofApp::keyPressed(int key){
             ofLogNotice("DebugMarkers") << (current ? "Hidden" : "Shown") << " (J — FluorescentNet)";
         }
     }
-    if ((key == 'e' || key == 'E') && ofGetKeyPressed(OF_KEY_SHIFT)) {
+    if (key == 'e' || key == 'E') {
         bool current = sceneEngine.isShowSkeleton();
         sceneEngine.setShowSkeleton(!current);
-        ofLogNotice("Skeleton") << (current ? "Hidden" : "Shown") << " (Shift+E)";
+        ofLogNotice("Skeleton") << (current ? "Hidden" : "Shown") << " (E)";
     }
     if (key == 'f' || key == 'F') {
         ofToggleFullscreen();
