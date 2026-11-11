@@ -16,6 +16,7 @@
 #include "scenes/SilhouetteDepthTunnelScene.h"
 #include "scenes/AcousticDepthEchoesScene.h"
 #include "scenes/BodySilhouetteScene.h"
+#include "scenes/PendulumScene.h"
 #include "input/sensors/DepthStore.h"
 
 #include "ui/InputPortsPanel.h"
@@ -106,6 +107,9 @@ void ofApp::setup(){
 
     modular::ScenePtr bsScene = modular::CreateBodySilhouetteScene();
     sceneEngine.loadScene(bsScene->getId(), bsScene);  // "bodySilhouette" (silueta real del depth)
+
+    modular::ScenePtr pdScene = modular::CreatePendulumScene();
+    sceneEngine.loadScene(pdScene->getId(), pdScene);  // "pendulum" (péndulos generativos)
     
     uiManager.setup();
 
