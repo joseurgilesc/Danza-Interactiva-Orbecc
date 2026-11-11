@@ -2,7 +2,7 @@
   {
     "mappingId": "kinect-map-1",
     "jointSource": "head.x",
-    "targetParameterId": "particleSwarm.head",
+    "targetParameterId": "pinturaFluorescente.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -19,7 +19,7 @@
   {
     "mappingId": "kinect-map-2",
     "jointSource": "neck.x",
-    "targetParameterId": "particleSwarm.neck",
+    "targetParameterId": "pinturaFluorescente.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -36,7 +36,7 @@
   {
     "mappingId": "kinect-map-3",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "particleSwarm.shoulder_left",
+    "targetParameterId": "pinturaFluorescente.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -53,7 +53,7 @@
   {
     "mappingId": "kinect-map-4",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "particleSwarm.shoulder_right",
+    "targetParameterId": "pinturaFluorescente.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -70,7 +70,7 @@
   {
     "mappingId": "kinect-map-5",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "particleSwarm.elbow_left",
+    "targetParameterId": "pinturaFluorescente.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -87,7 +87,7 @@
   {
     "mappingId": "kinect-map-6",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "particleSwarm.elbow_right",
+    "targetParameterId": "pinturaFluorescente.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -104,7 +104,7 @@
   {
     "mappingId": "kinect-map-7",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "particleSwarm.wrist_left",
+    "targetParameterId": "pinturaFluorescente.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -121,7 +121,7 @@
   {
     "mappingId": "kinect-map-8",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "particleSwarm.wrist_right",
+    "targetParameterId": "pinturaFluorescente.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -138,7 +138,7 @@
   {
     "mappingId": "kinect-map-9",
     "jointSource": "hand_left.x",
-    "targetParameterId": "particleSwarm.hand_left",
+    "targetParameterId": "pinturaFluorescente.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -155,7 +155,7 @@
   {
     "mappingId": "kinect-map-10",
     "jointSource": "hand_right.x",
-    "targetParameterId": "particleSwarm.hand_right",
+    "targetParameterId": "pinturaFluorescente.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -172,7 +172,7 @@
   {
     "mappingId": "kinect-map-11",
     "jointSource": "hip_left.x",
-    "targetParameterId": "particleSwarm.hip_left",
+    "targetParameterId": "pinturaFluorescente.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -189,7 +189,7 @@
   {
     "mappingId": "kinect-map-12",
     "jointSource": "hip_right.x",
-    "targetParameterId": "particleSwarm.hip_right",
+    "targetParameterId": "pinturaFluorescente.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -206,7 +206,7 @@
   {
     "mappingId": "kinect-map-13",
     "jointSource": "knee_left.x",
-    "targetParameterId": "particleSwarm.knee_left",
+    "targetParameterId": "pinturaFluorescente.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -223,7 +223,7 @@
   {
     "mappingId": "kinect-map-14",
     "jointSource": "knee_right.x",
-    "targetParameterId": "particleSwarm.knee_right",
+    "targetParameterId": "pinturaFluorescente.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -240,7 +240,7 @@
   {
     "mappingId": "kinect-map-15",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "particleSwarm.ankle_left",
+    "targetParameterId": "pinturaFluorescente.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -257,7 +257,7 @@
   {
     "mappingId": "kinect-map-16",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "particleSwarm.ankle_right",
+    "targetParameterId": "pinturaFluorescente.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -274,7 +274,7 @@
   {
     "mappingId": "kinect-map-17",
     "jointSource": "spine_base.x",
-    "targetParameterId": "particleSwarm.spine_base",
+    "targetParameterId": "pinturaFluorescente.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -291,7 +291,7 @@
   {
     "mappingId": "kinect-map-18",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "particleSwarm.spine_mid",
+    "targetParameterId": "pinturaFluorescente.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -308,7 +308,7 @@
   {
     "mappingId": "kinect-map-19",
     "jointSource": "head.x",
-    "targetParameterId": "organicNet.head",
+    "targetParameterId": "furry.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -325,7 +325,7 @@
   {
     "mappingId": "kinect-map-20",
     "jointSource": "neck.x",
-    "targetParameterId": "organicNet.neck",
+    "targetParameterId": "furry.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -342,7 +342,7 @@
   {
     "mappingId": "kinect-map-21",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "organicNet.shoulder_left",
+    "targetParameterId": "furry.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -359,7 +359,7 @@
   {
     "mappingId": "kinect-map-22",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "organicNet.shoulder_right",
+    "targetParameterId": "furry.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -376,7 +376,7 @@
   {
     "mappingId": "kinect-map-23",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "organicNet.elbow_left",
+    "targetParameterId": "furry.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -393,7 +393,7 @@
   {
     "mappingId": "kinect-map-24",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "organicNet.elbow_right",
+    "targetParameterId": "furry.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -410,7 +410,7 @@
   {
     "mappingId": "kinect-map-25",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "organicNet.wrist_left",
+    "targetParameterId": "furry.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -427,7 +427,7 @@
   {
     "mappingId": "kinect-map-26",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "organicNet.wrist_right",
+    "targetParameterId": "furry.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -444,7 +444,7 @@
   {
     "mappingId": "kinect-map-27",
     "jointSource": "hand_left.x",
-    "targetParameterId": "organicNet.hand_left",
+    "targetParameterId": "furry.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -461,7 +461,7 @@
   {
     "mappingId": "kinect-map-28",
     "jointSource": "hand_right.x",
-    "targetParameterId": "organicNet.hand_right",
+    "targetParameterId": "furry.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -478,7 +478,7 @@
   {
     "mappingId": "kinect-map-29",
     "jointSource": "hip_left.x",
-    "targetParameterId": "organicNet.hip_left",
+    "targetParameterId": "furry.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -495,7 +495,7 @@
   {
     "mappingId": "kinect-map-30",
     "jointSource": "hip_right.x",
-    "targetParameterId": "organicNet.hip_right",
+    "targetParameterId": "furry.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -512,7 +512,7 @@
   {
     "mappingId": "kinect-map-31",
     "jointSource": "knee_left.x",
-    "targetParameterId": "organicNet.knee_left",
+    "targetParameterId": "furry.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -529,7 +529,7 @@
   {
     "mappingId": "kinect-map-32",
     "jointSource": "knee_right.x",
-    "targetParameterId": "organicNet.knee_right",
+    "targetParameterId": "furry.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -546,7 +546,7 @@
   {
     "mappingId": "kinect-map-33",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "organicNet.ankle_left",
+    "targetParameterId": "furry.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -563,7 +563,7 @@
   {
     "mappingId": "kinect-map-34",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "organicNet.ankle_right",
+    "targetParameterId": "furry.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -580,7 +580,7 @@
   {
     "mappingId": "kinect-map-35",
     "jointSource": "spine_base.x",
-    "targetParameterId": "organicNet.spine_base",
+    "targetParameterId": "furry.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -597,7 +597,7 @@
   {
     "mappingId": "kinect-map-36",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "organicNet.spine_mid",
+    "targetParameterId": "furry.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -614,7 +614,7 @@
   {
     "mappingId": "kinect-map-37",
     "jointSource": "head.x",
-    "targetParameterId": "enjambreOrganico.head",
+    "targetParameterId": "ribbonDance.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -631,7 +631,7 @@
   {
     "mappingId": "kinect-map-38",
     "jointSource": "neck.x",
-    "targetParameterId": "enjambreOrganico.neck",
+    "targetParameterId": "ribbonDance.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -648,7 +648,7 @@
   {
     "mappingId": "kinect-map-39",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "enjambreOrganico.shoulder_left",
+    "targetParameterId": "ribbonDance.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -665,7 +665,7 @@
   {
     "mappingId": "kinect-map-40",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "enjambreOrganico.shoulder_right",
+    "targetParameterId": "ribbonDance.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -682,7 +682,7 @@
   {
     "mappingId": "kinect-map-41",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "enjambreOrganico.elbow_left",
+    "targetParameterId": "ribbonDance.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -699,7 +699,7 @@
   {
     "mappingId": "kinect-map-42",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "enjambreOrganico.elbow_right",
+    "targetParameterId": "ribbonDance.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -716,7 +716,7 @@
   {
     "mappingId": "kinect-map-43",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "enjambreOrganico.wrist_left",
+    "targetParameterId": "ribbonDance.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -733,7 +733,7 @@
   {
     "mappingId": "kinect-map-44",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "enjambreOrganico.wrist_right",
+    "targetParameterId": "ribbonDance.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -750,7 +750,7 @@
   {
     "mappingId": "kinect-map-45",
     "jointSource": "hand_left.x",
-    "targetParameterId": "enjambreOrganico.hand_left",
+    "targetParameterId": "ribbonDance.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -767,7 +767,7 @@
   {
     "mappingId": "kinect-map-46",
     "jointSource": "hand_right.x",
-    "targetParameterId": "enjambreOrganico.hand_right",
+    "targetParameterId": "ribbonDance.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -784,7 +784,7 @@
   {
     "mappingId": "kinect-map-47",
     "jointSource": "hip_left.x",
-    "targetParameterId": "enjambreOrganico.hip_left",
+    "targetParameterId": "ribbonDance.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -801,7 +801,7 @@
   {
     "mappingId": "kinect-map-48",
     "jointSource": "hip_right.x",
-    "targetParameterId": "enjambreOrganico.hip_right",
+    "targetParameterId": "ribbonDance.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -818,7 +818,7 @@
   {
     "mappingId": "kinect-map-49",
     "jointSource": "knee_left.x",
-    "targetParameterId": "enjambreOrganico.knee_left",
+    "targetParameterId": "ribbonDance.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -835,7 +835,7 @@
   {
     "mappingId": "kinect-map-50",
     "jointSource": "knee_right.x",
-    "targetParameterId": "enjambreOrganico.knee_right",
+    "targetParameterId": "ribbonDance.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -852,7 +852,7 @@
   {
     "mappingId": "kinect-map-51",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "enjambreOrganico.ankle_left",
+    "targetParameterId": "ribbonDance.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -869,7 +869,7 @@
   {
     "mappingId": "kinect-map-52",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "enjambreOrganico.ankle_right",
+    "targetParameterId": "ribbonDance.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -886,7 +886,7 @@
   {
     "mappingId": "kinect-map-53",
     "jointSource": "spine_base.x",
-    "targetParameterId": "enjambreOrganico.spine_base",
+    "targetParameterId": "ribbonDance.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -903,7 +903,7 @@
   {
     "mappingId": "kinect-map-54",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "enjambreOrganico.spine_mid",
+    "targetParameterId": "ribbonDance.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -920,7 +920,7 @@
   {
     "mappingId": "kinect-map-55",
     "jointSource": "head.x",
-    "targetParameterId": "ribbonDance.head",
+    "targetParameterId": "organicNet.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -937,7 +937,7 @@
   {
     "mappingId": "kinect-map-56",
     "jointSource": "neck.x",
-    "targetParameterId": "ribbonDance.neck",
+    "targetParameterId": "organicNet.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -954,7 +954,7 @@
   {
     "mappingId": "kinect-map-57",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "ribbonDance.shoulder_left",
+    "targetParameterId": "organicNet.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -971,7 +971,7 @@
   {
     "mappingId": "kinect-map-58",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "ribbonDance.shoulder_right",
+    "targetParameterId": "organicNet.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -988,7 +988,7 @@
   {
     "mappingId": "kinect-map-59",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "ribbonDance.elbow_left",
+    "targetParameterId": "organicNet.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1005,7 +1005,7 @@
   {
     "mappingId": "kinect-map-60",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "ribbonDance.elbow_right",
+    "targetParameterId": "organicNet.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1022,7 +1022,7 @@
   {
     "mappingId": "kinect-map-61",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "ribbonDance.wrist_left",
+    "targetParameterId": "organicNet.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1039,7 +1039,7 @@
   {
     "mappingId": "kinect-map-62",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "ribbonDance.wrist_right",
+    "targetParameterId": "organicNet.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1056,7 +1056,7 @@
   {
     "mappingId": "kinect-map-63",
     "jointSource": "hand_left.x",
-    "targetParameterId": "ribbonDance.hand_left",
+    "targetParameterId": "organicNet.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1073,7 +1073,7 @@
   {
     "mappingId": "kinect-map-64",
     "jointSource": "hand_right.x",
-    "targetParameterId": "ribbonDance.hand_right",
+    "targetParameterId": "organicNet.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1090,7 +1090,7 @@
   {
     "mappingId": "kinect-map-65",
     "jointSource": "hip_left.x",
-    "targetParameterId": "ribbonDance.hip_left",
+    "targetParameterId": "organicNet.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1107,7 +1107,7 @@
   {
     "mappingId": "kinect-map-66",
     "jointSource": "hip_right.x",
-    "targetParameterId": "ribbonDance.hip_right",
+    "targetParameterId": "organicNet.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1124,7 +1124,7 @@
   {
     "mappingId": "kinect-map-67",
     "jointSource": "knee_left.x",
-    "targetParameterId": "ribbonDance.knee_left",
+    "targetParameterId": "organicNet.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1141,7 +1141,7 @@
   {
     "mappingId": "kinect-map-68",
     "jointSource": "knee_right.x",
-    "targetParameterId": "ribbonDance.knee_right",
+    "targetParameterId": "organicNet.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1158,7 +1158,7 @@
   {
     "mappingId": "kinect-map-69",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "ribbonDance.ankle_left",
+    "targetParameterId": "organicNet.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1175,7 +1175,7 @@
   {
     "mappingId": "kinect-map-70",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "ribbonDance.ankle_right",
+    "targetParameterId": "organicNet.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1192,7 +1192,7 @@
   {
     "mappingId": "kinect-map-71",
     "jointSource": "spine_base.x",
-    "targetParameterId": "ribbonDance.spine_base",
+    "targetParameterId": "organicNet.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1209,7 +1209,7 @@
   {
     "mappingId": "kinect-map-72",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "ribbonDance.spine_mid",
+    "targetParameterId": "organicNet.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1226,7 +1226,7 @@
   {
     "mappingId": "kinect-map-73",
     "jointSource": "head.x",
-    "targetParameterId": "furry.head",
+    "targetParameterId": "trappedBodyNet.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1243,7 +1243,7 @@
   {
     "mappingId": "kinect-map-74",
     "jointSource": "neck.x",
-    "targetParameterId": "furry.neck",
+    "targetParameterId": "trappedBodyNet.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1260,7 +1260,7 @@
   {
     "mappingId": "kinect-map-75",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "furry.shoulder_left",
+    "targetParameterId": "trappedBodyNet.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1277,7 +1277,7 @@
   {
     "mappingId": "kinect-map-76",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "furry.shoulder_right",
+    "targetParameterId": "trappedBodyNet.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1294,7 +1294,7 @@
   {
     "mappingId": "kinect-map-77",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "furry.elbow_left",
+    "targetParameterId": "trappedBodyNet.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1311,7 +1311,7 @@
   {
     "mappingId": "kinect-map-78",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "furry.elbow_right",
+    "targetParameterId": "trappedBodyNet.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1328,7 +1328,7 @@
   {
     "mappingId": "kinect-map-79",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "furry.wrist_left",
+    "targetParameterId": "trappedBodyNet.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1345,7 +1345,7 @@
   {
     "mappingId": "kinect-map-80",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "furry.wrist_right",
+    "targetParameterId": "trappedBodyNet.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1362,7 +1362,7 @@
   {
     "mappingId": "kinect-map-81",
     "jointSource": "hand_left.x",
-    "targetParameterId": "furry.hand_left",
+    "targetParameterId": "trappedBodyNet.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1379,7 +1379,7 @@
   {
     "mappingId": "kinect-map-82",
     "jointSource": "hand_right.x",
-    "targetParameterId": "furry.hand_right",
+    "targetParameterId": "trappedBodyNet.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1396,7 +1396,7 @@
   {
     "mappingId": "kinect-map-83",
     "jointSource": "hip_left.x",
-    "targetParameterId": "furry.hip_left",
+    "targetParameterId": "trappedBodyNet.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1413,7 +1413,7 @@
   {
     "mappingId": "kinect-map-84",
     "jointSource": "hip_right.x",
-    "targetParameterId": "furry.hip_right",
+    "targetParameterId": "trappedBodyNet.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1430,7 +1430,7 @@
   {
     "mappingId": "kinect-map-85",
     "jointSource": "knee_left.x",
-    "targetParameterId": "furry.knee_left",
+    "targetParameterId": "trappedBodyNet.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1447,7 +1447,7 @@
   {
     "mappingId": "kinect-map-86",
     "jointSource": "knee_right.x",
-    "targetParameterId": "furry.knee_right",
+    "targetParameterId": "trappedBodyNet.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1464,7 +1464,7 @@
   {
     "mappingId": "kinect-map-87",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "furry.ankle_left",
+    "targetParameterId": "trappedBodyNet.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1481,7 +1481,7 @@
   {
     "mappingId": "kinect-map-88",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "furry.ankle_right",
+    "targetParameterId": "trappedBodyNet.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1498,7 +1498,7 @@
   {
     "mappingId": "kinect-map-89",
     "jointSource": "spine_base.x",
-    "targetParameterId": "furry.spine_base",
+    "targetParameterId": "trappedBodyNet.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1515,7 +1515,7 @@
   {
     "mappingId": "kinect-map-90",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "furry.spine_mid",
+    "targetParameterId": "trappedBodyNet.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1532,7 +1532,7 @@
   {
     "mappingId": "kinect-map-91",
     "jointSource": "head.x",
-    "targetParameterId": "gridDissolve.head",
+    "targetParameterId": "enjambreOrganico.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1549,7 +1549,7 @@
   {
     "mappingId": "kinect-map-92",
     "jointSource": "neck.x",
-    "targetParameterId": "gridDissolve.neck",
+    "targetParameterId": "enjambreOrganico.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1566,7 +1566,7 @@
   {
     "mappingId": "kinect-map-93",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "gridDissolve.shoulder_left",
+    "targetParameterId": "enjambreOrganico.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1583,7 +1583,7 @@
   {
     "mappingId": "kinect-map-94",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "gridDissolve.shoulder_right",
+    "targetParameterId": "enjambreOrganico.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1600,7 +1600,7 @@
   {
     "mappingId": "kinect-map-95",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "gridDissolve.elbow_left",
+    "targetParameterId": "enjambreOrganico.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1617,7 +1617,7 @@
   {
     "mappingId": "kinect-map-96",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "gridDissolve.elbow_right",
+    "targetParameterId": "enjambreOrganico.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1634,7 +1634,7 @@
   {
     "mappingId": "kinect-map-97",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "gridDissolve.wrist_left",
+    "targetParameterId": "enjambreOrganico.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1651,7 +1651,7 @@
   {
     "mappingId": "kinect-map-98",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "gridDissolve.wrist_right",
+    "targetParameterId": "enjambreOrganico.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1668,7 +1668,7 @@
   {
     "mappingId": "kinect-map-99",
     "jointSource": "hand_left.x",
-    "targetParameterId": "gridDissolve.hand_left",
+    "targetParameterId": "enjambreOrganico.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1685,7 +1685,7 @@
   {
     "mappingId": "kinect-map-100",
     "jointSource": "hand_right.x",
-    "targetParameterId": "gridDissolve.hand_right",
+    "targetParameterId": "enjambreOrganico.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1702,7 +1702,7 @@
   {
     "mappingId": "kinect-map-101",
     "jointSource": "hip_left.x",
-    "targetParameterId": "gridDissolve.hip_left",
+    "targetParameterId": "enjambreOrganico.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1719,7 +1719,7 @@
   {
     "mappingId": "kinect-map-102",
     "jointSource": "hip_right.x",
-    "targetParameterId": "gridDissolve.hip_right",
+    "targetParameterId": "enjambreOrganico.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1736,7 +1736,7 @@
   {
     "mappingId": "kinect-map-103",
     "jointSource": "knee_left.x",
-    "targetParameterId": "gridDissolve.knee_left",
+    "targetParameterId": "enjambreOrganico.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1753,7 +1753,7 @@
   {
     "mappingId": "kinect-map-104",
     "jointSource": "knee_right.x",
-    "targetParameterId": "gridDissolve.knee_right",
+    "targetParameterId": "enjambreOrganico.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1770,7 +1770,7 @@
   {
     "mappingId": "kinect-map-105",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "gridDissolve.ankle_left",
+    "targetParameterId": "enjambreOrganico.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1787,7 +1787,7 @@
   {
     "mappingId": "kinect-map-106",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "gridDissolve.ankle_right",
+    "targetParameterId": "enjambreOrganico.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1804,7 +1804,7 @@
   {
     "mappingId": "kinect-map-107",
     "jointSource": "spine_base.x",
-    "targetParameterId": "gridDissolve.spine_base",
+    "targetParameterId": "enjambreOrganico.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -1821,7 +1821,7 @@
   {
     "mappingId": "kinect-map-108",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "gridDissolve.spine_mid",
+    "targetParameterId": "enjambreOrganico.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2144,7 +2144,7 @@
   {
     "mappingId": "kinect-map-127",
     "jointSource": "head.x",
-    "targetParameterId": "trappedBodyNet.head",
+    "targetParameterId": "bodyContourPaint.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2161,7 +2161,7 @@
   {
     "mappingId": "kinect-map-128",
     "jointSource": "neck.x",
-    "targetParameterId": "trappedBodyNet.neck",
+    "targetParameterId": "bodyContourPaint.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2178,7 +2178,7 @@
   {
     "mappingId": "kinect-map-129",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "trappedBodyNet.shoulder_left",
+    "targetParameterId": "bodyContourPaint.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2195,7 +2195,7 @@
   {
     "mappingId": "kinect-map-130",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "trappedBodyNet.shoulder_right",
+    "targetParameterId": "bodyContourPaint.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2212,7 +2212,7 @@
   {
     "mappingId": "kinect-map-131",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "trappedBodyNet.elbow_left",
+    "targetParameterId": "bodyContourPaint.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2229,7 +2229,7 @@
   {
     "mappingId": "kinect-map-132",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "trappedBodyNet.elbow_right",
+    "targetParameterId": "bodyContourPaint.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2246,7 +2246,7 @@
   {
     "mappingId": "kinect-map-133",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "trappedBodyNet.wrist_left",
+    "targetParameterId": "bodyContourPaint.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2263,7 +2263,7 @@
   {
     "mappingId": "kinect-map-134",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "trappedBodyNet.wrist_right",
+    "targetParameterId": "bodyContourPaint.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2280,7 +2280,7 @@
   {
     "mappingId": "kinect-map-135",
     "jointSource": "hand_left.x",
-    "targetParameterId": "trappedBodyNet.hand_left",
+    "targetParameterId": "bodyContourPaint.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2297,7 +2297,7 @@
   {
     "mappingId": "kinect-map-136",
     "jointSource": "hand_right.x",
-    "targetParameterId": "trappedBodyNet.hand_right",
+    "targetParameterId": "bodyContourPaint.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2314,7 +2314,7 @@
   {
     "mappingId": "kinect-map-137",
     "jointSource": "hip_left.x",
-    "targetParameterId": "trappedBodyNet.hip_left",
+    "targetParameterId": "bodyContourPaint.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2331,7 +2331,7 @@
   {
     "mappingId": "kinect-map-138",
     "jointSource": "hip_right.x",
-    "targetParameterId": "trappedBodyNet.hip_right",
+    "targetParameterId": "bodyContourPaint.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2348,7 +2348,7 @@
   {
     "mappingId": "kinect-map-139",
     "jointSource": "knee_left.x",
-    "targetParameterId": "trappedBodyNet.knee_left",
+    "targetParameterId": "bodyContourPaint.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2365,7 +2365,7 @@
   {
     "mappingId": "kinect-map-140",
     "jointSource": "knee_right.x",
-    "targetParameterId": "trappedBodyNet.knee_right",
+    "targetParameterId": "bodyContourPaint.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2382,7 +2382,7 @@
   {
     "mappingId": "kinect-map-141",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "trappedBodyNet.ankle_left",
+    "targetParameterId": "bodyContourPaint.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2399,7 +2399,7 @@
   {
     "mappingId": "kinect-map-142",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "trappedBodyNet.ankle_right",
+    "targetParameterId": "bodyContourPaint.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2416,7 +2416,7 @@
   {
     "mappingId": "kinect-map-143",
     "jointSource": "spine_base.x",
-    "targetParameterId": "trappedBodyNet.spine_base",
+    "targetParameterId": "bodyContourPaint.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2433,7 +2433,7 @@
   {
     "mappingId": "kinect-map-144",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "trappedBodyNet.spine_mid",
+    "targetParameterId": "bodyContourPaint.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2450,7 +2450,7 @@
   {
     "mappingId": "kinect-map-145",
     "jointSource": "head.x",
-    "targetParameterId": "bodyContourPaint.head",
+    "targetParameterId": "depthSliceScan.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2467,7 +2467,7 @@
   {
     "mappingId": "kinect-map-146",
     "jointSource": "neck.x",
-    "targetParameterId": "bodyContourPaint.neck",
+    "targetParameterId": "depthSliceScan.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2484,7 +2484,7 @@
   {
     "mappingId": "kinect-map-147",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "bodyContourPaint.shoulder_left",
+    "targetParameterId": "depthSliceScan.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2501,7 +2501,7 @@
   {
     "mappingId": "kinect-map-148",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "bodyContourPaint.shoulder_right",
+    "targetParameterId": "depthSliceScan.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2518,7 +2518,7 @@
   {
     "mappingId": "kinect-map-149",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "bodyContourPaint.elbow_left",
+    "targetParameterId": "depthSliceScan.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2535,7 +2535,7 @@
   {
     "mappingId": "kinect-map-150",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "bodyContourPaint.elbow_right",
+    "targetParameterId": "depthSliceScan.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2552,7 +2552,7 @@
   {
     "mappingId": "kinect-map-151",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "bodyContourPaint.wrist_left",
+    "targetParameterId": "depthSliceScan.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2569,7 +2569,7 @@
   {
     "mappingId": "kinect-map-152",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "bodyContourPaint.wrist_right",
+    "targetParameterId": "depthSliceScan.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2586,7 +2586,7 @@
   {
     "mappingId": "kinect-map-153",
     "jointSource": "hand_left.x",
-    "targetParameterId": "bodyContourPaint.hand_left",
+    "targetParameterId": "depthSliceScan.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2603,7 +2603,7 @@
   {
     "mappingId": "kinect-map-154",
     "jointSource": "hand_right.x",
-    "targetParameterId": "bodyContourPaint.hand_right",
+    "targetParameterId": "depthSliceScan.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2620,7 +2620,7 @@
   {
     "mappingId": "kinect-map-155",
     "jointSource": "hip_left.x",
-    "targetParameterId": "bodyContourPaint.hip_left",
+    "targetParameterId": "depthSliceScan.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2637,7 +2637,7 @@
   {
     "mappingId": "kinect-map-156",
     "jointSource": "hip_right.x",
-    "targetParameterId": "bodyContourPaint.hip_right",
+    "targetParameterId": "depthSliceScan.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2654,7 +2654,7 @@
   {
     "mappingId": "kinect-map-157",
     "jointSource": "knee_left.x",
-    "targetParameterId": "bodyContourPaint.knee_left",
+    "targetParameterId": "depthSliceScan.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2671,7 +2671,7 @@
   {
     "mappingId": "kinect-map-158",
     "jointSource": "knee_right.x",
-    "targetParameterId": "bodyContourPaint.knee_right",
+    "targetParameterId": "depthSliceScan.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2688,7 +2688,7 @@
   {
     "mappingId": "kinect-map-159",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "bodyContourPaint.ankle_left",
+    "targetParameterId": "depthSliceScan.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2705,7 +2705,7 @@
   {
     "mappingId": "kinect-map-160",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "bodyContourPaint.ankle_right",
+    "targetParameterId": "depthSliceScan.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2722,7 +2722,7 @@
   {
     "mappingId": "kinect-map-161",
     "jointSource": "spine_base.x",
-    "targetParameterId": "bodyContourPaint.spine_base",
+    "targetParameterId": "depthSliceScan.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2739,7 +2739,7 @@
   {
     "mappingId": "kinect-map-162",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "bodyContourPaint.spine_mid",
+    "targetParameterId": "depthSliceScan.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2756,7 +2756,7 @@
   {
     "mappingId": "kinect-map-163",
     "jointSource": "head.x",
-    "targetParameterId": "pinturaFluorescente.head",
+    "targetParameterId": "volumetricLattice.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2773,7 +2773,7 @@
   {
     "mappingId": "kinect-map-164",
     "jointSource": "neck.x",
-    "targetParameterId": "pinturaFluorescente.neck",
+    "targetParameterId": "volumetricLattice.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2790,7 +2790,7 @@
   {
     "mappingId": "kinect-map-165",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "pinturaFluorescente.shoulder_left",
+    "targetParameterId": "volumetricLattice.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2807,7 +2807,7 @@
   {
     "mappingId": "kinect-map-166",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "pinturaFluorescente.shoulder_right",
+    "targetParameterId": "volumetricLattice.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2824,7 +2824,7 @@
   {
     "mappingId": "kinect-map-167",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "pinturaFluorescente.elbow_left",
+    "targetParameterId": "volumetricLattice.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2841,7 +2841,7 @@
   {
     "mappingId": "kinect-map-168",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "pinturaFluorescente.elbow_right",
+    "targetParameterId": "volumetricLattice.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2858,7 +2858,7 @@
   {
     "mappingId": "kinect-map-169",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "pinturaFluorescente.wrist_left",
+    "targetParameterId": "volumetricLattice.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2875,7 +2875,7 @@
   {
     "mappingId": "kinect-map-170",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "pinturaFluorescente.wrist_right",
+    "targetParameterId": "volumetricLattice.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2892,7 +2892,7 @@
   {
     "mappingId": "kinect-map-171",
     "jointSource": "hand_left.x",
-    "targetParameterId": "pinturaFluorescente.hand_left",
+    "targetParameterId": "volumetricLattice.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2909,7 +2909,7 @@
   {
     "mappingId": "kinect-map-172",
     "jointSource": "hand_right.x",
-    "targetParameterId": "pinturaFluorescente.hand_right",
+    "targetParameterId": "volumetricLattice.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2926,7 +2926,7 @@
   {
     "mappingId": "kinect-map-173",
     "jointSource": "hip_left.x",
-    "targetParameterId": "pinturaFluorescente.hip_left",
+    "targetParameterId": "volumetricLattice.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2943,7 +2943,7 @@
   {
     "mappingId": "kinect-map-174",
     "jointSource": "hip_right.x",
-    "targetParameterId": "pinturaFluorescente.hip_right",
+    "targetParameterId": "volumetricLattice.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2960,7 +2960,7 @@
   {
     "mappingId": "kinect-map-175",
     "jointSource": "knee_left.x",
-    "targetParameterId": "pinturaFluorescente.knee_left",
+    "targetParameterId": "volumetricLattice.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2977,7 +2977,7 @@
   {
     "mappingId": "kinect-map-176",
     "jointSource": "knee_right.x",
-    "targetParameterId": "pinturaFluorescente.knee_right",
+    "targetParameterId": "volumetricLattice.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -2994,7 +2994,7 @@
   {
     "mappingId": "kinect-map-177",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "pinturaFluorescente.ankle_left",
+    "targetParameterId": "volumetricLattice.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3011,7 +3011,7 @@
   {
     "mappingId": "kinect-map-178",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "pinturaFluorescente.ankle_right",
+    "targetParameterId": "volumetricLattice.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3028,7 +3028,7 @@
   {
     "mappingId": "kinect-map-179",
     "jointSource": "spine_base.x",
-    "targetParameterId": "pinturaFluorescente.spine_base",
+    "targetParameterId": "volumetricLattice.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3045,7 +3045,7 @@
   {
     "mappingId": "kinect-map-180",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "pinturaFluorescente.spine_mid",
+    "targetParameterId": "volumetricLattice.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3062,7 +3062,7 @@
   {
     "mappingId": "kinect-map-181",
     "jointSource": "head.x",
-    "targetParameterId": "depthSliceScan.head",
+    "targetParameterId": "elasticDepthMesh.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3079,7 +3079,7 @@
   {
     "mappingId": "kinect-map-182",
     "jointSource": "neck.x",
-    "targetParameterId": "depthSliceScan.neck",
+    "targetParameterId": "elasticDepthMesh.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3096,7 +3096,7 @@
   {
     "mappingId": "kinect-map-183",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "depthSliceScan.shoulder_left",
+    "targetParameterId": "elasticDepthMesh.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3113,7 +3113,7 @@
   {
     "mappingId": "kinect-map-184",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "depthSliceScan.shoulder_right",
+    "targetParameterId": "elasticDepthMesh.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3130,7 +3130,7 @@
   {
     "mappingId": "kinect-map-185",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "depthSliceScan.elbow_left",
+    "targetParameterId": "elasticDepthMesh.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3147,7 +3147,7 @@
   {
     "mappingId": "kinect-map-186",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "depthSliceScan.elbow_right",
+    "targetParameterId": "elasticDepthMesh.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3164,7 +3164,7 @@
   {
     "mappingId": "kinect-map-187",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "depthSliceScan.wrist_left",
+    "targetParameterId": "elasticDepthMesh.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3181,7 +3181,7 @@
   {
     "mappingId": "kinect-map-188",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "depthSliceScan.wrist_right",
+    "targetParameterId": "elasticDepthMesh.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3198,7 +3198,7 @@
   {
     "mappingId": "kinect-map-189",
     "jointSource": "hand_left.x",
-    "targetParameterId": "depthSliceScan.hand_left",
+    "targetParameterId": "elasticDepthMesh.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3215,7 +3215,7 @@
   {
     "mappingId": "kinect-map-190",
     "jointSource": "hand_right.x",
-    "targetParameterId": "depthSliceScan.hand_right",
+    "targetParameterId": "elasticDepthMesh.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3232,7 +3232,7 @@
   {
     "mappingId": "kinect-map-191",
     "jointSource": "hip_left.x",
-    "targetParameterId": "depthSliceScan.hip_left",
+    "targetParameterId": "elasticDepthMesh.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3249,7 +3249,7 @@
   {
     "mappingId": "kinect-map-192",
     "jointSource": "hip_right.x",
-    "targetParameterId": "depthSliceScan.hip_right",
+    "targetParameterId": "elasticDepthMesh.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3266,7 +3266,7 @@
   {
     "mappingId": "kinect-map-193",
     "jointSource": "knee_left.x",
-    "targetParameterId": "depthSliceScan.knee_left",
+    "targetParameterId": "elasticDepthMesh.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3283,7 +3283,7 @@
   {
     "mappingId": "kinect-map-194",
     "jointSource": "knee_right.x",
-    "targetParameterId": "depthSliceScan.knee_right",
+    "targetParameterId": "elasticDepthMesh.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3300,7 +3300,7 @@
   {
     "mappingId": "kinect-map-195",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "depthSliceScan.ankle_left",
+    "targetParameterId": "elasticDepthMesh.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3317,7 +3317,7 @@
   {
     "mappingId": "kinect-map-196",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "depthSliceScan.ankle_right",
+    "targetParameterId": "elasticDepthMesh.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3334,7 +3334,7 @@
   {
     "mappingId": "kinect-map-197",
     "jointSource": "spine_base.x",
-    "targetParameterId": "depthSliceScan.spine_base",
+    "targetParameterId": "elasticDepthMesh.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3351,7 +3351,7 @@
   {
     "mappingId": "kinect-map-198",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "depthSliceScan.spine_mid",
+    "targetParameterId": "elasticDepthMesh.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3368,7 +3368,7 @@
   {
     "mappingId": "kinect-map-199",
     "jointSource": "head.x",
-    "targetParameterId": "volumetricLattice.head",
+    "targetParameterId": "depthKineticVortex.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3385,7 +3385,7 @@
   {
     "mappingId": "kinect-map-200",
     "jointSource": "neck.x",
-    "targetParameterId": "volumetricLattice.neck",
+    "targetParameterId": "depthKineticVortex.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3402,7 +3402,7 @@
   {
     "mappingId": "kinect-map-201",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "volumetricLattice.shoulder_left",
+    "targetParameterId": "depthKineticVortex.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3419,7 +3419,7 @@
   {
     "mappingId": "kinect-map-202",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "volumetricLattice.shoulder_right",
+    "targetParameterId": "depthKineticVortex.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3436,7 +3436,7 @@
   {
     "mappingId": "kinect-map-203",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "volumetricLattice.elbow_left",
+    "targetParameterId": "depthKineticVortex.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3453,7 +3453,7 @@
   {
     "mappingId": "kinect-map-204",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "volumetricLattice.elbow_right",
+    "targetParameterId": "depthKineticVortex.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3470,7 +3470,7 @@
   {
     "mappingId": "kinect-map-205",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "volumetricLattice.wrist_left",
+    "targetParameterId": "depthKineticVortex.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3487,7 +3487,7 @@
   {
     "mappingId": "kinect-map-206",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "volumetricLattice.wrist_right",
+    "targetParameterId": "depthKineticVortex.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3504,7 +3504,7 @@
   {
     "mappingId": "kinect-map-207",
     "jointSource": "hand_left.x",
-    "targetParameterId": "volumetricLattice.hand_left",
+    "targetParameterId": "depthKineticVortex.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3521,7 +3521,7 @@
   {
     "mappingId": "kinect-map-208",
     "jointSource": "hand_right.x",
-    "targetParameterId": "volumetricLattice.hand_right",
+    "targetParameterId": "depthKineticVortex.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3538,7 +3538,7 @@
   {
     "mappingId": "kinect-map-209",
     "jointSource": "hip_left.x",
-    "targetParameterId": "volumetricLattice.hip_left",
+    "targetParameterId": "depthKineticVortex.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3555,7 +3555,7 @@
   {
     "mappingId": "kinect-map-210",
     "jointSource": "hip_right.x",
-    "targetParameterId": "volumetricLattice.hip_right",
+    "targetParameterId": "depthKineticVortex.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3572,7 +3572,7 @@
   {
     "mappingId": "kinect-map-211",
     "jointSource": "knee_left.x",
-    "targetParameterId": "volumetricLattice.knee_left",
+    "targetParameterId": "depthKineticVortex.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3589,7 +3589,7 @@
   {
     "mappingId": "kinect-map-212",
     "jointSource": "knee_right.x",
-    "targetParameterId": "volumetricLattice.knee_right",
+    "targetParameterId": "depthKineticVortex.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3606,7 +3606,7 @@
   {
     "mappingId": "kinect-map-213",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "volumetricLattice.ankle_left",
+    "targetParameterId": "depthKineticVortex.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3623,7 +3623,7 @@
   {
     "mappingId": "kinect-map-214",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "volumetricLattice.ankle_right",
+    "targetParameterId": "depthKineticVortex.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3640,7 +3640,7 @@
   {
     "mappingId": "kinect-map-215",
     "jointSource": "spine_base.x",
-    "targetParameterId": "volumetricLattice.spine_base",
+    "targetParameterId": "depthKineticVortex.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3657,7 +3657,7 @@
   {
     "mappingId": "kinect-map-216",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "volumetricLattice.spine_mid",
+    "targetParameterId": "depthKineticVortex.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3674,7 +3674,7 @@
   {
     "mappingId": "kinect-map-217",
     "jointSource": "head.x",
-    "targetParameterId": "elasticDepthMesh.head",
+    "targetParameterId": "voxelFluidDisruption.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3691,7 +3691,7 @@
   {
     "mappingId": "kinect-map-218",
     "jointSource": "neck.x",
-    "targetParameterId": "elasticDepthMesh.neck",
+    "targetParameterId": "voxelFluidDisruption.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3708,7 +3708,7 @@
   {
     "mappingId": "kinect-map-219",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "elasticDepthMesh.shoulder_left",
+    "targetParameterId": "voxelFluidDisruption.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3725,7 +3725,7 @@
   {
     "mappingId": "kinect-map-220",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "elasticDepthMesh.shoulder_right",
+    "targetParameterId": "voxelFluidDisruption.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3742,7 +3742,7 @@
   {
     "mappingId": "kinect-map-221",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "elasticDepthMesh.elbow_left",
+    "targetParameterId": "voxelFluidDisruption.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3759,7 +3759,7 @@
   {
     "mappingId": "kinect-map-222",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "elasticDepthMesh.elbow_right",
+    "targetParameterId": "voxelFluidDisruption.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3776,7 +3776,7 @@
   {
     "mappingId": "kinect-map-223",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "elasticDepthMesh.wrist_left",
+    "targetParameterId": "voxelFluidDisruption.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3793,7 +3793,7 @@
   {
     "mappingId": "kinect-map-224",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "elasticDepthMesh.wrist_right",
+    "targetParameterId": "voxelFluidDisruption.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3810,7 +3810,7 @@
   {
     "mappingId": "kinect-map-225",
     "jointSource": "hand_left.x",
-    "targetParameterId": "elasticDepthMesh.hand_left",
+    "targetParameterId": "voxelFluidDisruption.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3827,7 +3827,7 @@
   {
     "mappingId": "kinect-map-226",
     "jointSource": "hand_right.x",
-    "targetParameterId": "elasticDepthMesh.hand_right",
+    "targetParameterId": "voxelFluidDisruption.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3844,7 +3844,7 @@
   {
     "mappingId": "kinect-map-227",
     "jointSource": "hip_left.x",
-    "targetParameterId": "elasticDepthMesh.hip_left",
+    "targetParameterId": "voxelFluidDisruption.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3861,7 +3861,7 @@
   {
     "mappingId": "kinect-map-228",
     "jointSource": "hip_right.x",
-    "targetParameterId": "elasticDepthMesh.hip_right",
+    "targetParameterId": "voxelFluidDisruption.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3878,7 +3878,7 @@
   {
     "mappingId": "kinect-map-229",
     "jointSource": "knee_left.x",
-    "targetParameterId": "elasticDepthMesh.knee_left",
+    "targetParameterId": "voxelFluidDisruption.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3895,7 +3895,7 @@
   {
     "mappingId": "kinect-map-230",
     "jointSource": "knee_right.x",
-    "targetParameterId": "elasticDepthMesh.knee_right",
+    "targetParameterId": "voxelFluidDisruption.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3912,7 +3912,7 @@
   {
     "mappingId": "kinect-map-231",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "elasticDepthMesh.ankle_left",
+    "targetParameterId": "voxelFluidDisruption.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3929,7 +3929,7 @@
   {
     "mappingId": "kinect-map-232",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "elasticDepthMesh.ankle_right",
+    "targetParameterId": "voxelFluidDisruption.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3946,7 +3946,7 @@
   {
     "mappingId": "kinect-map-233",
     "jointSource": "spine_base.x",
-    "targetParameterId": "elasticDepthMesh.spine_base",
+    "targetParameterId": "voxelFluidDisruption.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3963,7 +3963,7 @@
   {
     "mappingId": "kinect-map-234",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "elasticDepthMesh.spine_mid",
+    "targetParameterId": "voxelFluidDisruption.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3980,7 +3980,7 @@
   {
     "mappingId": "kinect-map-235",
     "jointSource": "head.x",
-    "targetParameterId": "depthKineticVortex.head",
+    "targetParameterId": "gravitationalPointCloud.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -3997,7 +3997,7 @@
   {
     "mappingId": "kinect-map-236",
     "jointSource": "neck.x",
-    "targetParameterId": "depthKineticVortex.neck",
+    "targetParameterId": "gravitationalPointCloud.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4014,7 +4014,7 @@
   {
     "mappingId": "kinect-map-237",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "depthKineticVortex.shoulder_left",
+    "targetParameterId": "gravitationalPointCloud.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4031,7 +4031,7 @@
   {
     "mappingId": "kinect-map-238",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "depthKineticVortex.shoulder_right",
+    "targetParameterId": "gravitationalPointCloud.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4048,7 +4048,7 @@
   {
     "mappingId": "kinect-map-239",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "depthKineticVortex.elbow_left",
+    "targetParameterId": "gravitationalPointCloud.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4065,7 +4065,7 @@
   {
     "mappingId": "kinect-map-240",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "depthKineticVortex.elbow_right",
+    "targetParameterId": "gravitationalPointCloud.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4082,7 +4082,7 @@
   {
     "mappingId": "kinect-map-241",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "depthKineticVortex.wrist_left",
+    "targetParameterId": "gravitationalPointCloud.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4099,7 +4099,7 @@
   {
     "mappingId": "kinect-map-242",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "depthKineticVortex.wrist_right",
+    "targetParameterId": "gravitationalPointCloud.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4116,7 +4116,7 @@
   {
     "mappingId": "kinect-map-243",
     "jointSource": "hand_left.x",
-    "targetParameterId": "depthKineticVortex.hand_left",
+    "targetParameterId": "gravitationalPointCloud.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4133,7 +4133,7 @@
   {
     "mappingId": "kinect-map-244",
     "jointSource": "hand_right.x",
-    "targetParameterId": "depthKineticVortex.hand_right",
+    "targetParameterId": "gravitationalPointCloud.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4150,7 +4150,7 @@
   {
     "mappingId": "kinect-map-245",
     "jointSource": "hip_left.x",
-    "targetParameterId": "depthKineticVortex.hip_left",
+    "targetParameterId": "gravitationalPointCloud.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4167,7 +4167,7 @@
   {
     "mappingId": "kinect-map-246",
     "jointSource": "hip_right.x",
-    "targetParameterId": "depthKineticVortex.hip_right",
+    "targetParameterId": "gravitationalPointCloud.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4184,7 +4184,7 @@
   {
     "mappingId": "kinect-map-247",
     "jointSource": "knee_left.x",
-    "targetParameterId": "depthKineticVortex.knee_left",
+    "targetParameterId": "gravitationalPointCloud.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4201,7 +4201,7 @@
   {
     "mappingId": "kinect-map-248",
     "jointSource": "knee_right.x",
-    "targetParameterId": "depthKineticVortex.knee_right",
+    "targetParameterId": "gravitationalPointCloud.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4218,7 +4218,7 @@
   {
     "mappingId": "kinect-map-249",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "depthKineticVortex.ankle_left",
+    "targetParameterId": "gravitationalPointCloud.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4235,7 +4235,7 @@
   {
     "mappingId": "kinect-map-250",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "depthKineticVortex.ankle_right",
+    "targetParameterId": "gravitationalPointCloud.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4252,7 +4252,7 @@
   {
     "mappingId": "kinect-map-251",
     "jointSource": "spine_base.x",
-    "targetParameterId": "depthKineticVortex.spine_base",
+    "targetParameterId": "gravitationalPointCloud.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4269,7 +4269,7 @@
   {
     "mappingId": "kinect-map-252",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "depthKineticVortex.spine_mid",
+    "targetParameterId": "gravitationalPointCloud.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4286,7 +4286,7 @@
   {
     "mappingId": "kinect-map-253",
     "jointSource": "head.x",
-    "targetParameterId": "voxelFluidDisruption.head",
+    "targetParameterId": "silhouetteDepthTunnel.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4303,7 +4303,7 @@
   {
     "mappingId": "kinect-map-254",
     "jointSource": "neck.x",
-    "targetParameterId": "voxelFluidDisruption.neck",
+    "targetParameterId": "silhouetteDepthTunnel.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4320,7 +4320,7 @@
   {
     "mappingId": "kinect-map-255",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "voxelFluidDisruption.shoulder_left",
+    "targetParameterId": "silhouetteDepthTunnel.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4337,7 +4337,7 @@
   {
     "mappingId": "kinect-map-256",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "voxelFluidDisruption.shoulder_right",
+    "targetParameterId": "silhouetteDepthTunnel.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4354,7 +4354,7 @@
   {
     "mappingId": "kinect-map-257",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "voxelFluidDisruption.elbow_left",
+    "targetParameterId": "silhouetteDepthTunnel.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4371,7 +4371,7 @@
   {
     "mappingId": "kinect-map-258",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "voxelFluidDisruption.elbow_right",
+    "targetParameterId": "silhouetteDepthTunnel.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4388,7 +4388,7 @@
   {
     "mappingId": "kinect-map-259",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "voxelFluidDisruption.wrist_left",
+    "targetParameterId": "silhouetteDepthTunnel.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4405,7 +4405,7 @@
   {
     "mappingId": "kinect-map-260",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "voxelFluidDisruption.wrist_right",
+    "targetParameterId": "silhouetteDepthTunnel.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4422,7 +4422,7 @@
   {
     "mappingId": "kinect-map-261",
     "jointSource": "hand_left.x",
-    "targetParameterId": "voxelFluidDisruption.hand_left",
+    "targetParameterId": "silhouetteDepthTunnel.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4439,7 +4439,7 @@
   {
     "mappingId": "kinect-map-262",
     "jointSource": "hand_right.x",
-    "targetParameterId": "voxelFluidDisruption.hand_right",
+    "targetParameterId": "silhouetteDepthTunnel.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4456,7 +4456,7 @@
   {
     "mappingId": "kinect-map-263",
     "jointSource": "hip_left.x",
-    "targetParameterId": "voxelFluidDisruption.hip_left",
+    "targetParameterId": "silhouetteDepthTunnel.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4473,7 +4473,7 @@
   {
     "mappingId": "kinect-map-264",
     "jointSource": "hip_right.x",
-    "targetParameterId": "voxelFluidDisruption.hip_right",
+    "targetParameterId": "silhouetteDepthTunnel.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4490,7 +4490,7 @@
   {
     "mappingId": "kinect-map-265",
     "jointSource": "knee_left.x",
-    "targetParameterId": "voxelFluidDisruption.knee_left",
+    "targetParameterId": "silhouetteDepthTunnel.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4507,7 +4507,7 @@
   {
     "mappingId": "kinect-map-266",
     "jointSource": "knee_right.x",
-    "targetParameterId": "voxelFluidDisruption.knee_right",
+    "targetParameterId": "silhouetteDepthTunnel.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4524,7 +4524,7 @@
   {
     "mappingId": "kinect-map-267",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "voxelFluidDisruption.ankle_left",
+    "targetParameterId": "silhouetteDepthTunnel.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4541,7 +4541,7 @@
   {
     "mappingId": "kinect-map-268",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "voxelFluidDisruption.ankle_right",
+    "targetParameterId": "silhouetteDepthTunnel.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4558,7 +4558,7 @@
   {
     "mappingId": "kinect-map-269",
     "jointSource": "spine_base.x",
-    "targetParameterId": "voxelFluidDisruption.spine_base",
+    "targetParameterId": "silhouetteDepthTunnel.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4575,7 +4575,7 @@
   {
     "mappingId": "kinect-map-270",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "voxelFluidDisruption.spine_mid",
+    "targetParameterId": "silhouetteDepthTunnel.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4592,7 +4592,7 @@
   {
     "mappingId": "kinect-map-271",
     "jointSource": "head.x",
-    "targetParameterId": "gravitationalPointCloud.head",
+    "targetParameterId": "acousticDepthEchoes.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4609,7 +4609,7 @@
   {
     "mappingId": "kinect-map-272",
     "jointSource": "neck.x",
-    "targetParameterId": "gravitationalPointCloud.neck",
+    "targetParameterId": "acousticDepthEchoes.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4626,7 +4626,7 @@
   {
     "mappingId": "kinect-map-273",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "gravitationalPointCloud.shoulder_left",
+    "targetParameterId": "acousticDepthEchoes.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4643,7 +4643,7 @@
   {
     "mappingId": "kinect-map-274",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "gravitationalPointCloud.shoulder_right",
+    "targetParameterId": "acousticDepthEchoes.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4660,7 +4660,7 @@
   {
     "mappingId": "kinect-map-275",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "gravitationalPointCloud.elbow_left",
+    "targetParameterId": "acousticDepthEchoes.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4677,7 +4677,7 @@
   {
     "mappingId": "kinect-map-276",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "gravitationalPointCloud.elbow_right",
+    "targetParameterId": "acousticDepthEchoes.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4694,7 +4694,7 @@
   {
     "mappingId": "kinect-map-277",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "gravitationalPointCloud.wrist_left",
+    "targetParameterId": "acousticDepthEchoes.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4711,7 +4711,7 @@
   {
     "mappingId": "kinect-map-278",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "gravitationalPointCloud.wrist_right",
+    "targetParameterId": "acousticDepthEchoes.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4728,7 +4728,7 @@
   {
     "mappingId": "kinect-map-279",
     "jointSource": "hand_left.x",
-    "targetParameterId": "gravitationalPointCloud.hand_left",
+    "targetParameterId": "acousticDepthEchoes.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4745,7 +4745,7 @@
   {
     "mappingId": "kinect-map-280",
     "jointSource": "hand_right.x",
-    "targetParameterId": "gravitationalPointCloud.hand_right",
+    "targetParameterId": "acousticDepthEchoes.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4762,7 +4762,7 @@
   {
     "mappingId": "kinect-map-281",
     "jointSource": "hip_left.x",
-    "targetParameterId": "gravitationalPointCloud.hip_left",
+    "targetParameterId": "acousticDepthEchoes.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4779,7 +4779,7 @@
   {
     "mappingId": "kinect-map-282",
     "jointSource": "hip_right.x",
-    "targetParameterId": "gravitationalPointCloud.hip_right",
+    "targetParameterId": "acousticDepthEchoes.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4796,7 +4796,7 @@
   {
     "mappingId": "kinect-map-283",
     "jointSource": "knee_left.x",
-    "targetParameterId": "gravitationalPointCloud.knee_left",
+    "targetParameterId": "acousticDepthEchoes.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4813,7 +4813,7 @@
   {
     "mappingId": "kinect-map-284",
     "jointSource": "knee_right.x",
-    "targetParameterId": "gravitationalPointCloud.knee_right",
+    "targetParameterId": "acousticDepthEchoes.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4830,7 +4830,7 @@
   {
     "mappingId": "kinect-map-285",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "gravitationalPointCloud.ankle_left",
+    "targetParameterId": "acousticDepthEchoes.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4847,7 +4847,7 @@
   {
     "mappingId": "kinect-map-286",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "gravitationalPointCloud.ankle_right",
+    "targetParameterId": "acousticDepthEchoes.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4864,7 +4864,7 @@
   {
     "mappingId": "kinect-map-287",
     "jointSource": "spine_base.x",
-    "targetParameterId": "gravitationalPointCloud.spine_base",
+    "targetParameterId": "acousticDepthEchoes.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4881,7 +4881,7 @@
   {
     "mappingId": "kinect-map-288",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "gravitationalPointCloud.spine_mid",
+    "targetParameterId": "acousticDepthEchoes.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4898,7 +4898,7 @@
   {
     "mappingId": "kinect-map-289",
     "jointSource": "head.x",
-    "targetParameterId": "silhouetteDepthTunnel.head",
+    "targetParameterId": "bodySilhouette.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4915,7 +4915,7 @@
   {
     "mappingId": "kinect-map-290",
     "jointSource": "neck.x",
-    "targetParameterId": "silhouetteDepthTunnel.neck",
+    "targetParameterId": "bodySilhouette.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4932,7 +4932,7 @@
   {
     "mappingId": "kinect-map-291",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "silhouetteDepthTunnel.shoulder_left",
+    "targetParameterId": "bodySilhouette.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4949,7 +4949,7 @@
   {
     "mappingId": "kinect-map-292",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "silhouetteDepthTunnel.shoulder_right",
+    "targetParameterId": "bodySilhouette.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4966,7 +4966,7 @@
   {
     "mappingId": "kinect-map-293",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "silhouetteDepthTunnel.elbow_left",
+    "targetParameterId": "bodySilhouette.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -4983,7 +4983,7 @@
   {
     "mappingId": "kinect-map-294",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "silhouetteDepthTunnel.elbow_right",
+    "targetParameterId": "bodySilhouette.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5000,7 +5000,7 @@
   {
     "mappingId": "kinect-map-295",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "silhouetteDepthTunnel.wrist_left",
+    "targetParameterId": "bodySilhouette.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5017,7 +5017,7 @@
   {
     "mappingId": "kinect-map-296",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "silhouetteDepthTunnel.wrist_right",
+    "targetParameterId": "bodySilhouette.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5034,7 +5034,7 @@
   {
     "mappingId": "kinect-map-297",
     "jointSource": "hand_left.x",
-    "targetParameterId": "silhouetteDepthTunnel.hand_left",
+    "targetParameterId": "bodySilhouette.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5051,7 +5051,7 @@
   {
     "mappingId": "kinect-map-298",
     "jointSource": "hand_right.x",
-    "targetParameterId": "silhouetteDepthTunnel.hand_right",
+    "targetParameterId": "bodySilhouette.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5068,7 +5068,7 @@
   {
     "mappingId": "kinect-map-299",
     "jointSource": "hip_left.x",
-    "targetParameterId": "silhouetteDepthTunnel.hip_left",
+    "targetParameterId": "bodySilhouette.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5085,7 +5085,7 @@
   {
     "mappingId": "kinect-map-300",
     "jointSource": "hip_right.x",
-    "targetParameterId": "silhouetteDepthTunnel.hip_right",
+    "targetParameterId": "bodySilhouette.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5102,7 +5102,7 @@
   {
     "mappingId": "kinect-map-301",
     "jointSource": "knee_left.x",
-    "targetParameterId": "silhouetteDepthTunnel.knee_left",
+    "targetParameterId": "bodySilhouette.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5119,7 +5119,7 @@
   {
     "mappingId": "kinect-map-302",
     "jointSource": "knee_right.x",
-    "targetParameterId": "silhouetteDepthTunnel.knee_right",
+    "targetParameterId": "bodySilhouette.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5136,7 +5136,7 @@
   {
     "mappingId": "kinect-map-303",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "silhouetteDepthTunnel.ankle_left",
+    "targetParameterId": "bodySilhouette.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5153,7 +5153,7 @@
   {
     "mappingId": "kinect-map-304",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "silhouetteDepthTunnel.ankle_right",
+    "targetParameterId": "bodySilhouette.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5170,7 +5170,7 @@
   {
     "mappingId": "kinect-map-305",
     "jointSource": "spine_base.x",
-    "targetParameterId": "silhouetteDepthTunnel.spine_base",
+    "targetParameterId": "bodySilhouette.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5187,7 +5187,7 @@
   {
     "mappingId": "kinect-map-306",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "silhouetteDepthTunnel.spine_mid",
+    "targetParameterId": "bodySilhouette.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5204,7 +5204,7 @@
   {
     "mappingId": "kinect-map-307",
     "jointSource": "head.x",
-    "targetParameterId": "acousticDepthEchoes.head",
+    "targetParameterId": "pendulum.head",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5221,7 +5221,7 @@
   {
     "mappingId": "kinect-map-308",
     "jointSource": "neck.x",
-    "targetParameterId": "acousticDepthEchoes.neck",
+    "targetParameterId": "pendulum.neck",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5238,7 +5238,7 @@
   {
     "mappingId": "kinect-map-309",
     "jointSource": "shoulder_left.x",
-    "targetParameterId": "acousticDepthEchoes.shoulder_left",
+    "targetParameterId": "pendulum.shoulder_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5255,7 +5255,7 @@
   {
     "mappingId": "kinect-map-310",
     "jointSource": "shoulder_right.x",
-    "targetParameterId": "acousticDepthEchoes.shoulder_right",
+    "targetParameterId": "pendulum.shoulder_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5272,7 +5272,7 @@
   {
     "mappingId": "kinect-map-311",
     "jointSource": "elbow_left.x",
-    "targetParameterId": "acousticDepthEchoes.elbow_left",
+    "targetParameterId": "pendulum.elbow_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5289,7 +5289,7 @@
   {
     "mappingId": "kinect-map-312",
     "jointSource": "elbow_right.x",
-    "targetParameterId": "acousticDepthEchoes.elbow_right",
+    "targetParameterId": "pendulum.elbow_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5306,7 +5306,7 @@
   {
     "mappingId": "kinect-map-313",
     "jointSource": "wrist_left.x",
-    "targetParameterId": "acousticDepthEchoes.wrist_left",
+    "targetParameterId": "pendulum.wrist_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5323,7 +5323,7 @@
   {
     "mappingId": "kinect-map-314",
     "jointSource": "wrist_right.x",
-    "targetParameterId": "acousticDepthEchoes.wrist_right",
+    "targetParameterId": "pendulum.wrist_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5340,7 +5340,7 @@
   {
     "mappingId": "kinect-map-315",
     "jointSource": "hand_left.x",
-    "targetParameterId": "acousticDepthEchoes.hand_left",
+    "targetParameterId": "pendulum.hand_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5357,7 +5357,7 @@
   {
     "mappingId": "kinect-map-316",
     "jointSource": "hand_right.x",
-    "targetParameterId": "acousticDepthEchoes.hand_right",
+    "targetParameterId": "pendulum.hand_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5374,7 +5374,7 @@
   {
     "mappingId": "kinect-map-317",
     "jointSource": "hip_left.x",
-    "targetParameterId": "acousticDepthEchoes.hip_left",
+    "targetParameterId": "pendulum.hip_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5391,7 +5391,7 @@
   {
     "mappingId": "kinect-map-318",
     "jointSource": "hip_right.x",
-    "targetParameterId": "acousticDepthEchoes.hip_right",
+    "targetParameterId": "pendulum.hip_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5408,7 +5408,7 @@
   {
     "mappingId": "kinect-map-319",
     "jointSource": "knee_left.x",
-    "targetParameterId": "acousticDepthEchoes.knee_left",
+    "targetParameterId": "pendulum.knee_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5425,7 +5425,7 @@
   {
     "mappingId": "kinect-map-320",
     "jointSource": "knee_right.x",
-    "targetParameterId": "acousticDepthEchoes.knee_right",
+    "targetParameterId": "pendulum.knee_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5442,7 +5442,7 @@
   {
     "mappingId": "kinect-map-321",
     "jointSource": "ankle_left.x",
-    "targetParameterId": "acousticDepthEchoes.ankle_left",
+    "targetParameterId": "pendulum.ankle_left",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5459,7 +5459,7 @@
   {
     "mappingId": "kinect-map-322",
     "jointSource": "ankle_right.x",
-    "targetParameterId": "acousticDepthEchoes.ankle_right",
+    "targetParameterId": "pendulum.ankle_right",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5476,7 +5476,7 @@
   {
     "mappingId": "kinect-map-323",
     "jointSource": "spine_base.x",
-    "targetParameterId": "acousticDepthEchoes.spine_base",
+    "targetParameterId": "pendulum.spine_base",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
@@ -5493,7 +5493,7 @@
   {
     "mappingId": "kinect-map-324",
     "jointSource": "spine_mid.x",
-    "targetParameterId": "acousticDepthEchoes.spine_mid",
+    "targetParameterId": "pendulum.spine_mid",
     "condition": 4,
     "threshold": 0.5,
     "minRange": 0.0,
