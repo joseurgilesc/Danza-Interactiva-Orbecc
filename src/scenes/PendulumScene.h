@@ -3,6 +3,8 @@
 #include "scenes/BaseScene.h"
 #include "registry/ParameterRegistry.h"
 #include "scenes/GenesisCommon.h"
+#include "ofxOscReceiver.h"
+#include "ofxOscMessage.h"
 #include "ofMain.h"
 #include <glm/vec2.hpp>
 #include <vector>
@@ -119,13 +121,19 @@ private:
     bool isActive_ = false, isPaused_ = false;
 
     // Parámetros del péndulo (port del p5.js)
-    float linelength_ = 64.0f;
-    int joints_ = 12;
+    float linelength_ = 28.0f;
+    int joints_ = 6;
     float gravity_ = 0.094f;
     float damping_ = 0.998f;
     float minThickness_ = 1.5f;
     float maxThickness_ = 18.0f;
-    float speedSensitivity_ = 25.0f;
+    float speedSensitivity_ = 18.0f;
+
+    // Audio (Csound) → modulación visual
+    ofxOscReceiver csoundReceiver_;
+    bool csoundReceiverSetup_ = false;
+    float audioEnergy_ = 0.5f;   // 0..1 (energía recibida de Csound)
+    float audioFreq_ = 110.0f;
 };
 
 ScenePtr CreatePendulumScene();

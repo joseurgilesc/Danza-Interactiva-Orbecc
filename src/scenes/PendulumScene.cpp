@@ -132,18 +132,15 @@ void PendulumShape::draw(float minThickness, float maxThickness, float speedSens
         ofPopMatrix();
     }
 
-    // Trazo del péndulo con grosor por velocidad.
+    // Trazo del péndulo: grosor según la VELOCIDAD DEL JOINT (no del péndulo).
     if (pendulumPath.size() > 1) {
         ofSetColor(color.r * 255, color.g * 255, color.b * 255, color.a * 255);
-        for (size_t i = 1; i < pendulumPath.size(); i++) {
-            const glm::vec2& p1 = pendulumPath[i - 1];
-            const glm::vec2& p2 = pendulumPath[i];
-            float dist = glm::distance(p1, p2);
-            float sw = ofMap(dist, 0.0f, speedSensitivity, minThickness, maxThickness, true);
-            sw = ofClamp(sw, minThickness, maxThickness);
-            ofSetLineWidth(sw);
-            ofDrawLine(p1.x, p1.y, p2.x, p2.y);
-        }
+        float speed = glm::length(vel);   // velocidad del joint (px/frame)
+        float sw = ofClamp(ofMap(speed, 0.0f, speedSensitivity, minThickness, maxThickness, true), minThickness, maxThickness);
+        ofSetLineWidth(sw);
+        ofBeginShape();
+        for (const auto& p : pendulumPath) ofVertex(p.x, p.y);
+        ofEndShape(false);
     }
 }
 
@@ -157,6 +154,12 @@ void PendulumScene::setup() {
     ofEnableAlphaBlending();
     ofSetBackgroundAuto(true);
     ofBackground(0);
+
+    // Receptor OSC de Csound (energía/frecuencia del audio).
+    if (!csoundReceiverSetup_) {
+        csoundReceiver_.setup(9001);
+        csoundReceiverSetup_ = true;
+    }
 
     emitters_.clear();
     emitters_.push_back({"wrist_left",  cNeon()});
@@ -188,6 +191,19 @@ void PendulumScene::update(float dt) {
     if (!isActive_ || isPaused_) return;
     dt = glm::clamp(dt, 0.0f, 0.1f);
     for (auto& e : interactionPoints_) e.second.update(dt);
+
+    // Poll Csound OSC → energía/frecuencia del audio para modular lo visual.
+    if (csoundReceiverSetup_) {
+        while (csoundReceiver_.hasWaitingMessages()) {
+            ofxOscMessage m;
+            csoundReceiver_.getNextMessage(m);
+            if (m.getAddress() == "/csound/energy" && m.getNumArgs() >= 1) {
+                audioEnergy_ = ofClamp(m.getArgAsFloat(0), 0.0f, 1.0f);
+            } else if (m.getAddress() == "/csound/freq" && m.getNumArgs() >= 1) {
+                audioFreq_ = m.getArgAsFloat(0);
+            }
+        }
+    }
 
     for (auto& emitter : emitters_) {
         auto it = interactionPoints_.find(emitter.jointName);
