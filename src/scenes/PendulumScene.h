@@ -110,6 +110,8 @@ public:
     void windowResized(int,int) override;
 
 private:
+    void drawBones();
+
     std::vector<BodyEmitter> emitters_;
     std::vector<std::shared_ptr<PendulumShape>> floating_;
     std::map<std::string, InteractionPoint> interactionPoints_;

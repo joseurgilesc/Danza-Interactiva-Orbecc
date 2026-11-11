@@ -5,6 +5,18 @@
 
 namespace modular {
 
+// Huesos del esqueleto (brazos, piernas, torso) para la sensación de esqueleto.
+static const std::pair<const char*, const char*> kBones[] = {
+    {"head", "neck"},
+    {"neck", "shoulder_left"}, {"neck", "shoulder_right"},
+    {"shoulder_left", "elbow_left"}, {"elbow_left", "wrist_left"}, {"wrist_left", "hand_left"},
+    {"shoulder_right", "elbow_right"}, {"elbow_right", "wrist_right"}, {"wrist_right", "hand_right"},
+    {"neck", "spine_mid"}, {"spine_mid", "spine_base"},
+    {"spine_base", "hip_left"}, {"spine_base", "hip_right"},
+    {"hip_left", "knee_left"}, {"knee_left", "ankle_left"},
+    {"hip_right", "knee_right"}, {"knee_right", "ankle_right"},
+};
+
 // ============================================================================
 // Pendulum
 // ============================================================================
@@ -70,13 +82,14 @@ void PendulumShape::updatePos(float x, float y, float gravity, float damping) {
         if (lifeTime > detachTime) {
             state = 1;
             lifeTime = 0.0f;
+            vel *= 0.35f;   // amortiguar la velocidad heredada (se va suave)
         }
     } else if (state == 1) {
         currentPos += vel;
-        vel.y -= 0.1f;
-        vel *= 0.95f;
+        vel.y -= 0.05f;
+        vel *= 0.98f;
         lifeTime++;
-        if (lifeTime > 120.0f) {
+        if (lifeTime > 180.0f) {
             state = 2;
             return;
         }
@@ -207,6 +220,10 @@ void PendulumScene::draw() {
     if (!isActive_) return;
 
     ofEnableAlphaBlending();
+
+    // Huesos del esqueleto (sensación de cuerpo) — detrás de los péndulos.
+    drawBones();
+
     ofEnableBlendMode(OF_BLENDMODE_ADD);
 
     for (auto& emitter : emitters_) {
@@ -217,6 +234,25 @@ void PendulumScene::draw() {
     }
 
     ofDisableBlendMode();
+}
+
+void PendulumScene::drawBones() {
+    ofSetColor(cDim().r, cDim().g, cDim().b, 130);
+    ofSetLineWidth(1.6f);
+    for (const auto& bone : kBones) {
+        auto a = interactionPoints_.find(bone.first);
+        auto b = interactionPoints_.find(bone.second);
+        if (a == interactionPoints_.end() || b == interactionPoints_.end()) continue;
+        if (!a->second.active || !b->second.active) continue;
+        ofDrawLine(a->second.position.x, a->second.position.y, b->second.position.x, b->second.position.y);
+    }
+    // Puntos en las articulaciones.
+    ofFill();
+    for (const auto& e : interactionPoints_) {
+        if (!e.second.active) continue;
+        ofDrawCircle(e.second.position.x, e.second.position.y, 2.5f);
+    }
+    ofNoFill();
 }
 
 // ── boilerplate ───────────────────────────────────────────────────────────
