@@ -41,7 +41,7 @@ start() {
   if command -v csound >/dev/null 2>&1; then
     if [ -z "$(csound_pid)" ]; then
       echo "▶ arrancando csound (ambient.csd)..."
-      setsid -f csound -odac "$ROOT/csound/ambient.csd" > "$ROOT/csound.log" 2>&1
+      setsid -f csound "$ROOT/csound/ambient.csd" > "$ROOT/csound.log" 2>&1
       sleep 1
     fi
   else

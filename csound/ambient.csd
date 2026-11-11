@@ -13,7 +13,6 @@ nchnls = 2
 ; Música ambiente + OSC hacia la app oF.
 ; Envía a 127.0.0.1:9001 (la app escucha en ese puerto).
 ; ============================================================
-gihandle OSCinit 9001
 
 ; --- Tabla 1: onda seno suave para drones ---
 giSine ftgen 1, 0, 4096, 10, 1
@@ -34,8 +33,8 @@ instr 1
   ; Enviar energía (amplitud) y frecuencia por OSC cada 0.1 s
   ktrig metro 10
   if (ktrig == 1) then
-    OSCsend ktrig, "/csound/energy", "f", kenv
-    OSCsend ktrig, "/csound/freq", "f", kfreq
+    OSCsend ktrig, "localhost", 9001, "/csound/energy", "f", kenv
+    OSCsend ktrig, "localhost", 9001, "/csound/freq", "f", kfreq
   endif
 
   outs aout, aout
@@ -52,7 +51,7 @@ instr 2
 
   ktrig metro 10
   if (ktrig == 1) then
-    OSCsend ktrig, "/csound/shimmer", "f", kenv
+    OSCsend ktrig, "localhost", 9001, "/csound/shimmer", "f", kenv
   endif
 
   outs aout * 0.25, aout * 0.25
