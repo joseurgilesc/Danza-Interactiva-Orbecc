@@ -207,7 +207,7 @@ void PendulumScene::update(float dt) {
 
     for (auto& emitter : emitters_) {
         auto it = interactionPoints_.find(emitter.jointName);
-        bool active = (it != interactionPoints_.end() && it->second.active);
+        bool hasFresh = (it != interactionPoints_.end() && it->second.active && it->second.confidence > 0.9f);
 
         if (!emitter.active || emitter.active->state != 0) {
             // El shape actual se fue (detached o murió) → pasarlo a floating_ y crear otro.
@@ -217,8 +217,13 @@ void PendulumScene::update(float dt) {
             emitter.active = std::make_shared<PendulumShape>(emitter.color, linelength_, joints_, gravity_, damping_);
         }
 
-        if (active) {
+        if (hasFresh) {
             emitter.active->updatePos(it->second.position.x, it->second.position.y, gravity_, damping_);
+        } else if (emitter.active->state == 0 && emitter.active->hasPos) {
+            // Joint perdido → soltar (flota suave, NO vuela con la inercia del decay).
+            emitter.active->state = 1;
+            emitter.active->lifeTime = 0.0f;
+            emitter.active->vel *= 0.2f;
         }
     }
 
