@@ -37,16 +37,7 @@ start() {
   setsid -f "$PYTHON" "$DET" > "$ROOT/detector.log" 2>&1
   sleep 2
 
-  # Arrancar Csound (música ambiente) si está instalado.
-  if command -v csound >/dev/null 2>&1; then
-    if [ -z "$(csound_pid)" ]; then
-      echo "▶ arrancando csound (ambient.csd)..."
-      setsid -f csound "$ROOT/csound/ambient.csd" > "$ROOT/csound.log" 2>&1
-      sleep 1
-    fi
-  else
-    echo "ℹ️  Csound no instalado — sin música ambiente (sudo apt install csound)"
-  fi
+  # Csound NO se arranca aquí: lo inicia/para la escena Pendulum (solo ahí hay audio).
 
   if [ -z "$(app_pid)" ]; then
     echo "▶ arrancando app oF (DISPLAY=:0)..."

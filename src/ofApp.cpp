@@ -17,6 +17,7 @@
 #include "scenes/AcousticDepthEchoesScene.h"
 #include "scenes/BodySilhouetteScene.h"
 #include "scenes/PendulumScene.h"
+#include "scenes/MeshScene.h"
 #include "input/sensors/DepthStore.h"
 
 #include "ui/InputPortsPanel.h"
@@ -110,6 +111,9 @@ void ofApp::setup(){
 
     modular::ScenePtr pdScene = modular::CreatePendulumScene();
     sceneEngine.loadScene(pdScene->getId(), pdScene);  // "pendulum" (péndulos generativos)
+
+    modular::ScenePtr meshScene = modular::CreateMeshScene();
+    sceneEngine.loadScene(meshScene->getId(), meshScene);  // "mesh" (red deformada por péndulos invisibles)
     
     uiManager.setup();
 

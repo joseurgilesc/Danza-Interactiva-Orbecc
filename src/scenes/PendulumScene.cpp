@@ -18,46 +18,6 @@ static const std::pair<const char*, const char*> kBones[] = {
 };
 
 // ============================================================================
-// Pendulum
-// ============================================================================
-Pendulum::Pendulum(float sz, int h, float g, float d)
-    : hierarchy(h - 1), size(sz), gravity(g), damping(d), angle(ofRandom(glm::two_pi<float>())) {
-    if (hierarchy > 0) {
-        arm = std::make_shared<Pendulum>(sz / 1.5f, hierarchy, g, d);
-    }
-}
-
-void Pendulum::update(float heading) {
-    end = origin + glm::vec2(size * std::sin(angle), size * std::cos(angle));
-    float accel = (-gravity / size) * std::sin(angle + heading);
-    angle += angularVel;
-    angularVel += accel;
-    angularVel *= damping;
-    if (arm) arm->update(heading);
-}
-
-glm::vec2 Pendulum::getTrail(const glm::vec2& offset) {
-    if (arm) {
-        return arm->getTrail(offset) + end;
-    }
-    return end + offset;
-}
-
-void Pendulum::draw() {
-    ofSetColor(255, 255, 255, 40);
-    ofDrawLine(origin.x, origin.y, end.x, end.y);
-    ofFill();
-    ofDrawCircle(end.x, end.y, 2.0f);
-    ofNoFill();
-    if (arm) {
-        ofPushMatrix();
-        ofTranslate(end.x, end.y);
-        arm->draw();
-        ofPopMatrix();
-    }
-}
-
-// ============================================================================
 // PendulumShape
 // ============================================================================
 PendulumShape::PendulumShape(ofFloatColor c, float linelength, int joints, float gravity, float damping)
@@ -175,6 +135,12 @@ void PendulumScene::activate() {
     ofSetWindowTitle("Generative Pendulum");
     ofSetFrameRate(60);
     ofBackground(0);
+
+    // Arrancar Csound (música ambiente) — solo en esta escena.
+    std::string csd = ofFilePath::join(ofFilePath::getCurrentExeDir(), "../csound/ambient.csd");
+    std::string startCmd = "command -v csound >/dev/null 2>&1 && { pkill -f 'ambient.csd' 2>/dev/null; setsid csound \""
+        + csd + "\" > /tmp/csound_ambient.log 2>&1 & }";
+    ofSystem(startCmd);
 }
 
 void PendulumScene::deactivate() {
@@ -182,6 +148,9 @@ void PendulumScene::deactivate() {
     interactionPoints_.clear();
     emitters_.clear();
     floating_.clear();
+
+    // Parar Csound (solo sonaba en esta escena).
+    ofSystem("pkill -f 'ambient.csd' 2>/dev/null");
 }
 
 void PendulumScene::pause() { isPaused_ = true; }

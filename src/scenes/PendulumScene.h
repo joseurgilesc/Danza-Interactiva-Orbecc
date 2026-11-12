@@ -3,6 +3,7 @@
 #include "scenes/BaseScene.h"
 #include "registry/ParameterRegistry.h"
 #include "scenes/GenesisCommon.h"
+#include "scenes/Pendulum.h"
 #include "ofxOscReceiver.h"
 #include "ofxOscMessage.h"
 #include "ofMain.h"
@@ -13,28 +14,6 @@
 #include <map>
 
 namespace modular {
-
-// ============================================================================
-// Pendulum — péndulo multi-brazo (jerarquía), física de gravedad + amortiguación.
-// Port del "Pendulum" de p5.js.
-// ============================================================================
-struct Pendulum {
-    int hierarchy = 0;            // brazos restantes (0 = hoja)
-    float size = 64.0f;
-    float angle = 0.0f;
-    float angularVel = 0.0f;
-    float gravity = 0.094f;
-    float damping = 0.998f;
-    glm::vec2 origin{0.0f};
-    glm::vec2 end{0.0f};
-    std::shared_ptr<Pendulum> arm;
-
-    Pendulum(float sz, int h, float gravity, float damping);
-
-    void update(float heading);
-    glm::vec2 getTrail(const glm::vec2& offset);
-    void draw();
-};
 
 // ============================================================================
 // PendulumShape — péndulo anclado a un joint del cuerpo, con trazo por velocidad.
