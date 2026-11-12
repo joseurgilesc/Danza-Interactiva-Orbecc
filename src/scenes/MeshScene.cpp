@@ -178,6 +178,12 @@ void MeshScene::update(float dt) {
         }
         auto& shape = shapes_[i];
 
+        // Recrear el shape cuando se soltó/murió → el joint SIEMPRE sigue
+        // deformando la red (antes se moría y dejaba de funcionar).
+        if (shape->state != 0) {
+            shape = std::make_shared<BodyShape>(linelength_, joints_, gravity_, damping_);
+        }
+
         if (hasFresh) {
             shape->updatePos(it->second.position.x, it->second.position.y, it->second.z, gravity_, damping_, jitterThreshold_);
         } else if (shape->state == 0 && shape->hasPos) {
