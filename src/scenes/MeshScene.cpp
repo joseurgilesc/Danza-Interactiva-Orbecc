@@ -254,11 +254,11 @@ void MeshScene::draw() {
             float speed = glm::length(node.vel);
             float t = ofClamp(speed / 15.0f, 0.0f, 1.0f);
             ofColor col;
-            if (t < 0.5f) col = cNoche().getLerped(cNeon(), t * 2.0f);
+            if (t < 0.5f) col = cDim().getLerped(cNeon(), t * 2.0f);
             else          col = cNeon().getLerped(cCore(), (t - 0.5f) * 2.0f);
-            float alpha = ofMap(speed, 0.0f, 15.0f, 30.0f, 100.0f, true);
+            float alpha = ofMap(speed, 0.0f, 15.0f, 45.0f, 100.0f, true);
             ofSetColor(col, alpha);
-            ofSetLineWidth(ofMap(speed, 0.0f, 15.0f, 0.5f, 4.0f, true));
+            ofSetLineWidth(ofMap(speed, 0.0f, 15.0f, 1.5f, 4.0f, true));
 
             if (c < cols_ - 1) {
                 const GridNode& right = grid_[(c + 1) + r * cols_];
